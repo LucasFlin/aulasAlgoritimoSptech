@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 2</title>
+</head>
+<body>
+    <h1>Consumo Anual de Refrigerante</h1>
+    <p>Quantas latinhas você toma por dia?</p>
+    <input type="text" id="ipt_latas"><br>
+    <button onclick="calcular()">Quantos refris?</button>
+    <p id="txt_latas"></p>
+</body>
+</html>
+<script>
+    function calcular(){
+        let latas = Number(ipt_latas.value)
+        let latasTotal = latas*365
+        if(latasTotal>=500){
+            txt_latas.innerHTML = `Você toma ${latasTotal} latas por ano. Cuidado com a diabetes!`
+        }else{
+            txt_latas.innerHTML = `Você toma ${latasTotal} latas por ano.`
+        }
+    }
+</script>

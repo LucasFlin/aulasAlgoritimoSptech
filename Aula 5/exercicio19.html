@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 19</title>
+</head>
+<body>
+    <h1>Verificação de Clima: Alimentos em Bom Estado ou Estragados?</h1>
+    <p>Qual a temperatura do ambiente?</p>
+    <input id="ipt_temp"></inpu><br><br>
+    <button onclick="temperatura()">Verificar clima</button><br>
+    <div id="div_img"></div>
+</body>
+</html>
+<script>
+    function temperatura(){
+        let temperatura = Number(ipt_temp.value)
+
+        if (temperatura < 10){
+            div_img.innerHTML = '<img width=500 src="frutaBoa.png" alt="">'
+        }else{
+            div_img.innerHTML = '<img width=500 src="frutaRuim.png" alt="">'
+        }
+    }
+</script>

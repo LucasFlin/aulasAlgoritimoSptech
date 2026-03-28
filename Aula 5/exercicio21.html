@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 21</title>
+</head>
+<body>
+    <h1>Pesquisa sobre os tipos de Pokémon</h1>
+    <p>Digite seu nome:</p>
+    <input type="text" id="ipt_nome">
+    <p>Digite o tipo pokémon (entre água, fogo, planta, elétrico e dragão)</p>
+    <input type="text" id="ipt_tipo">
+    <br><button onclick="pokemon()">Pesquisar</button>
+    <br><div id="div_msg"></div>
+</body>
+</html>
+<script>
+    function pokemon(){
+        let tipo = ipt_tipo.value
+        let nome = ipt_nome.value
+
+        if(tipo == 'água' || tipo == 'Água' || tipo == 'agua' || tipo == 'Agua'){
+            div_msg.innerHTML = `Olá, ${nome}, aqui está as informações sobre o tipo Água:
+                                <br>- Ele é mais forte contra: Fogo;
+                                <br>- Ele é mais fraco contra: Água, Planta e Dragão;
+                                <br>- Ele é mais resistente contra: Fogo e Água;
+                                <br>- Ele é menos resistente contra: Planta e Elétrico
+                                <br><br>Boa sorte em sua jornada Pokémon!`
+        } else if(tipo == 'fogo' || tipo == 'Fogo') {
+            div_msg.innerHTML = `Olá, ${nome}, aqui está as informações sobre o tipo Fogo:
+                                <br>- Ele é mais forte contra: Planta;
+                                <br>- Ele é mais fraco contra: Fogo, Água e Dragão;
+                                <br>- Ele é mais resistente contra: Fogo e Planta;
+                                <br>- Ele é menos resistente contra: Água
+                                <br><br>Boa sorte em sua jornada Pokémon!`
+        } else if(tipo == 'planta' || tipo == 'Planta') {
+            div_msg.innerHTML = `Olá, ${nome}, aqui está as informações sobre o tipo Planta:
+                                <br>- Ele é mais forte contra: Água;
+                                <br>- Ele é mais fraco contra: Fogo, Planta e Dragão;
+                                <br>- Ele é mais resistente contra: Água, Planta e Elétrico;
+                                <br>- Ele é menos resistente contra: Fogo
+                                <br><br>Boa sorte em sua jornada Pokémon!`
+        } else if(tipo == 'eletrico' || tipo == 'Eletrico' || tipo == 'elétrico' || tipo == 'Elétrico') {
+            div_msg.innerHTML = `Olá, ${nome}, aqui está as informações sobre o tipo Elétrico:
+                                <br>- Ele é mais forte contra: Água;
+                                <br>- Ele é mais fraco contra: Planta, Elétrico e Dragão;
+                                <br>- Ele é mais resistente contra: Elétrico;
+                                <br>- Ele não é resistente contra nada.
+                                <br><br>Boa sorte em sua jornada Pokémon!`
+        } else if(tipo == 'dragao' || tipo == 'Dragão' || tipo == 'dragão' || tipo == 'Dragao') {
+            div_msg.innerHTML = `Olá, ${nome}, aqui está as informações sobre o tipo Dragão:
+                                <br>- Ele é mais forte contra: Dragão;
+                                <br>- Ele não é fraco contra nada;
+                                <br>- Ele é mais resistente contra: Fogo, Água, Planta e Elétrico;
+                                <br>- Ele não é resistente contra Dragão.
+                                <br><br>Boa sorte em sua jornada Pokémon!`
+        } else{
+            div_msg.innerHTML = 'Pesquisa inválida, esse tipo não existem'
+        }
+    }
+</script>

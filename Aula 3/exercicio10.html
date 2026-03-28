@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 10</title>
+</head>
+<body>
+    <h1>Analisador de Resultados Eleitorais</h1>
+    <samp>Quantos votos o candidato A teve? </samp>
+    <input type="text" id="ipt_candidatoA"> <br>
+    <samp>Quantos votos o candidato B teve?</samp>
+    <input type="text" id="ipt_candidatoB"> <br>
+    <samp>Quantos votos em branco houveram?</samp>
+    <input type="text" id="ipt_branco"> <br>
+    <samp>Quantos votos nulos houveram?</samp>
+    <input type="text" id="ipt_nulo"> <br> <br>
+    <button onclick="eleicao()">Calcular</button>
+    <p id="votos_totais"></p>
+    <p id="votos_A"></p>
+    <p id="votos_B"></p>
+    <p id="votos_branco"></p>
+</body>
+</html>
+<script>
+    function eleicao(){
+        let votosA = Number(ipt_candidatoA.value)
+        let votosB = Number(ipt_candidatoB.value)
+        let votosInv = Number(ipt_branco.value)+Number(ipt_nulo.value)
+        let votosTotais = votosA+votosB+votosInv
+        let porcentoA = (votosA*100)/votosTotais
+        let porcentoB = (votosB*100)/votosTotais
+        let porcentoInv = (votosInv*100)/votosTotais
+
+        votos_totais.innerHTML = `Total de votos: ${votosTotais}`
+        votos_A.innerHTML = `Candidato A: ${porcentoA.toFixed(2)}% (${votosA} votos)`
+        votos_B.innerHTML = `Candidato B: ${porcentoB.toFixed(2)}% (${votosB} votos)`
+        votos_branco.innerHTML = `Candidato C: ${porcentoInv.toFixed(2)}% (${votosInv} votos)`
+    }
+</script>

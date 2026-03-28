@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 3</title>
+</head>
+<body>
+    <h1>Média Escolar de Paty</h1>
+    <p>Insira suas notas:</p>
+    <samp>Nota 1: </samp><input type="text" id="ipt_nota1"><br><br>
+    <samp>Nota 2: </samp><input type="text" id="ipt_nota2"><br><br>
+    <samp>Nota 3: </samp><input type="text" id="ipt_nota3"><br><br>
+    <button onclick="calcularMedia()">Analizar desempenho</button>
+    <h3 id="txt_media"></h3>
+</body>
+</html>
+<script>
+    function calcularMedia(){
+        let media = ((Number(ipt_nota1.value)+Number(ipt_nota2.value)+Number(ipt_nota3.value))/3).toFixed(2)
+        if(media>9.4){
+            txt_media.innerHTML = `Sua média foi de ${media}. Parabéns, você é fora de série!`
+        } else{
+            txt_media.innerHTML = `Sua média foi de ${media}.`
+        }
+    }
+</script>

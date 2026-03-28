@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 16</title>
+</head>
+<body>
+    <h1>Promoção de Chocolates: Calcule o Valor da Sua Compra</h1>
+    <p>Quandos chocolates você comprou?</p>
+    <input type="text" id="ipt_chocolates"><br><br>
+    <button onclick="compra()">Compra</button>
+    <p id="txt_compra"></p>
+</body>
+</html>
+<script>
+    function compra(){
+        let chocolates = Number(ipt_chocolates.value)
+
+        if(chocolates<12){
+            console.log(`${chocolates} x 3 = ${chocolates*3}`)
+            txt_compra.innerHTML = `O valor da sua compra foi de R$${(chocolates*3).toFixed(2)}`
+        }else{
+            console.log(`${chocolates} x 2.50 = ${chocolates.toFixed(2) * 2.50}`)
+            txt_compra.innerHTML = `O valor da sua compra foi de R$${(chocolates.toFixed(2) * 2.50).toFixed(2)}`
+        }
+    }
+</script>

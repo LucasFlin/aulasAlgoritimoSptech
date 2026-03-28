@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 3</title>
+</head>
+<body>
+    <h1>Sensação Térmica: Como o Corpo Humano Percebe a Temperatura</h1>
+    <p>Qual a temperatura agora?</p>
+    <input type="text" id="ipt_temperatura"><samp>°C</samp>
+    <br><button onclick="sentir()">Perceber</button>
+    <p id="txt_temp"></p>
+</body>
+</html>
+<script>
+    function sentir(){
+        let temp = Number(ipt_temperatura.value)
+
+        if (temp < 14){
+            txt_temp.innerHTML = 'Congelante'
+        } else if (temp >= 14 && temp <= 21){
+            txt_temp.innerHTML = 'Com frio'
+        } else if (temp > 21 && temp <= 24){
+            txt_temp.innerHTML = 'Confortável'
+        } else if (temp > 24 && temp <= 31){
+            txt_temp.innerHTML = 'Com calor'
+        } else {
+            txt_temp.innerHTML = 'Calor escaldante'
+        }
+    }
+</script>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frase 2.0</title>
+</head>
+<body>
+    <h1>Frase Numerada</h1>
+    <p>Diga suas sabias palavras: <input type="text" id="ipt_frase"> <button onclick="repetir()">Dizer</button></p>
+    <div id="div_msg"></div>
+</body>
+</html>
+<script>
+    function repetir(){
+        let i = 1
+        let frase = ipt_frase.value
+        while (i <= 7){
+            div_msg.innerHTML += `${i}. ${frase}<br>`
+            i++
+        }
+    }s
+</script>

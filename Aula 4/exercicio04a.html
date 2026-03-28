@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 4a</title>
+</head>
+<body>
+    <h1>Divisão Justa da Pizza</h1>
+    <samp>Qual o valor da pizza? </samp><input type="text" id="ipt_valor"><br><br>
+    <samp>Quantos amigos estão reunidos? </samp><input type="text" id="ipt_amigos"><br><br>
+    <button onclick="pizza()">Rola a pizza?</button>
+    <div id="txt_pizza"></div>
+</body>
+</html>
+<script>
+    function pizza(){
+        let valorFinal = (Number(ipt_valor.value)/Number(ipt_amigos.value)).toFixed(2)
+        txt_pizza.innerHTML = ''
+        txt_pizza.innerHTML += `Cada amigo vai pagar R$${valorFinal} pela pizza <br>`
+        if(valorFinal>20){
+            txt_pizza.innerHTML += "<span style='color: red;font-style: italic;font-weight: bold;'>Deu ruim! Pizza muito cara!<\span>"
+        }
+    }
+</script>

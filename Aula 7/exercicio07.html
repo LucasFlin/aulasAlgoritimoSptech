@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 7</title>
+</head>
+<body>
+    <h1>Autenticação Segura com Tentativas Limitadas</h1>
+    <p>Digite seu login</p>
+    <input type="text" id="ipt_login">
+    <p>Digite sua senha</p>
+    <input type="text" id="ipt_senha">
+    <p>Digite sua informação pessoal</p>
+    <input type="text" id="ipt_info">
+    <button onclick="login()">Fazer login</button>
+    <div id="div_login"></div>
+</body>
+</html>
+<script>
+    let contador = 1
+    let block = false
+    function login(){
+        let login = ipt_login.value
+        let senha = ipt_senha.value
+        let info = ipt_info.value
+        if(contador >= 3){
+            block = true
+        }
+        if (block == false){
+            if (login == 'ana' && senha == 'braga' && (info == 'louro josé' || info == '1949')){
+                div_login.innerHTML = `Usuário autenticado`
+                contador = 0
+            }else{
+                if (contador < 3){
+                    div_login.innerHTML = `Falha na autenticação`
+                    contador++
+                    div_login.innerHTML += `<br>Você ainta tem ${3-contador} tentativa(s)`
+                }
+            }
+        }else if (block == true){
+            div_login.innerHTML = `Usuário BLOQUEADO! Procure seu gerente!`
+        }
+    }
+</script>

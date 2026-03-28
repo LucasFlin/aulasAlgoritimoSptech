@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 6</title>
+</head>
+<body>
+    <h1>Times Paulistas: O Canto da Sua Torcida!</h1>
+    <p>Qual dos seguintes times você torce? (São Paulo, Palmeiras, Corinthians ou Santos)</p>
+    <input type="text" id="ipt_time"><br>
+    <button onclick="time()">Fale sobre esse time</button>
+    <div id="txt_time"></div>
+</body>
+</html>
+<script>
+    function time(){
+        let time = ipt_time.value
+
+        if(time == 'Corinthians'){
+            txt_time.innerHTML = '<h2 style="color: white; background-color: black;">Salve o Corinthians</h2>'
+        } else if (time == 'Palmeiras'){
+            txt_time.innerHTML = '<h2 style="color: white; background-color: green;">Salve o alviverde imponente</h2>'
+        } else if (time == 'Santos'){
+            txt_time.innerHTML = '<h2 style="color: black; background-color: white;">Agora quem dá a bola é o Santos</h2>'
+        }else if (time == 'São Paulo'){
+            txt_time.innerHTML = '<h2 style="color: red; background-color: black;">Salve o Tricolor paulista</h2>'
+        }
+    }
+</script>

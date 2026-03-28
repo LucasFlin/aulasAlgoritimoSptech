@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sanji</title>
+</head>
+
+<body>
+    <h1>CRUD do Sanji</h1>
+    <p>Quantas comidas foram feitas?</p>
+    <input type="text" id="ipt_comida">
+    <button onclick="cadastrar()">Cadastrar Estoque de Comida</button> <button onclick="pesquisar()">Pesquisar</button>
+    <div id="div_pesquisa"></div>
+    <br>
+    <br>
+    <button onclick="verificar()">Verificar Quantidade</button>
+    <div id="div_comida"></div>
+    <br>
+    <br>
+    <button onclick="estoque()"> Exibit Estoque</button>
+    <div id="div_estoque"></div>
+</body>
+
+</html>
+<script>
+    let comida = []
+    function cadastrar() {
+        comida.push(ipt_comida.value)
+        console.log(comida)
+    }
+    function verificar() {
+        if (comida.length < 3) {
+            div_comida.innerHTML = 'Desse jeito, o Luffy devora até o navio'
+        } else if (comida.length >= 3 && comida.length <= 7) {
+            div_comida.innerHTML = 'O comilão do Luffy não vai deixar sobrar nenhuma comida'
+        } else if (comida.length >= 8 && comida.length < 10) {
+            div_comida.innerHTML = 'Assim, talvez sobre um pouco para a tripulação'
+        } else if (comida.length > 10) {
+            div_comida.innerHTML = 'Desse jeito vai ter comida para todo mundo e ainda consigo guardar um pouco para a senhorita Nami!'
+        }
+    }
+    function pesquisar() {
+        let food = ipt_comida.value
+        let quantidade = 0
+
+        for (let i = 0; i <= comida.length; i++) {
+
+            if (comida[i] == food) {
+                quantidade++
+            }
+        }
+        if (quantidade == 0) {
+            div_pesquisa.innerHTML = `Alguém vai ter que comprar ${food}, tá fazendo falta...`
+        } else if (quantidade == 1) {
+            div_pesquisa.innerHTML = `Temos a comida ${food} e há 1 unidade dela`
+        } else {
+            div_pesquisa.innerHTML = `Temos a comida ${food} e há ${quantidade} unidades dela`
+        }
+    }
+    function estoque() {
+        let estoque = []
+        for (let i = 0; i < comida.length; i++) {
+            let qnt = 0
+            let food = comida[i]
+            let ultimo = comida.lastIndexOf(comida[i])
+
+            if (comida.indexOf(comida[i]) != comida.lastIndexOf(comida[i])) {
+                estoque.push(comida[i])
+
+                for (let j = 0; j <= comida.length; j++) {
+                    if (estoque[j] == comida[i]) {
+                        qnt++
+                    }
+                }
+            }
+            console.log(qnt)
+            if (i == ultimo) {
+                let quantidade = qnt == 0 ? '(1 unidade)' : `(${qnt} unidades)`
+                div_estoque.innerHTML += `- ${food} ${quantidade}<br>`
+            }
+        }
+    }
+</script>

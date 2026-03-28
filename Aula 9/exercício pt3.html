@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Alunos</title>
+</head>
+<body>
+    <center>
+    <h1>Gerenciamento de Lista de Alunos</h1>
+    <button onclick="lista()">Exibir lista</button>
+    <p id="msg_lista"></p>
+    <br>
+    <div style="background-color: lightgray; border: 2px; width: fit-content; padding: 10px; border-radius: 10px;">
+    <p>Adicionar aluno: <input type="text" id="ipt_add_aluno"></p>
+    <button onclick="cadastrar()">Cadastrar aluno</button>
+    <p id="msg_add"></p>
+    </div>
+    <br><br>
+    <div style="background-color: lightgray; border: 2px; width: fit-content; padding: 10px; border-radius: 10px;">
+    <p>Remover aluno: <input type="text" id="ipt_rmv_aluno"></p>
+    <button onclick="remover()">Remover aluno</button>
+    <p id="msg_rmv"></p>
+    </div>
+    <br><br>
+    <div style="background-color: lightgray; border: 2px; width: fit-content; padding: 10px; border-radius: 10px;">
+    <button onclick="atualizar()">Altualizar aluno</button>
+    <p id="msg_att"></p>
+    </div>
+    </center>
+</body>
+</html>
+<script>
+    let listaAlunos = []
+    function lista(){
+        if (listaAlunos.length == 0){
+            msg_lista.innerHTML = `Nenhum aluno cadastrado na lista`
+        }else{
+            msg_lista.innerHTML = `Lista de alunos: ${listaAlunos}`
+        }
+    }
+    function cadastrar(){
+        if (ipt_add_aluno.value == ''){
+            msg_add.innerHTML = 'Preencha o campo de cadastro de aluno.'
+        }else if(listaAlunos.includes(ipt_add_aluno.value)){
+            msg_add.innerHTML = `Aluno já cadastrado`
+        }else{
+            listaAlunos.push(ipt_add_aluno.value)
+            msg_add.innerHTML = `Aluno ${ipt_add_aluno.value} foi cadastrado(a) com sucesso!`
+        }
+    }
+    function remover(){
+        if (ipt_rmv_aluno.value == ''){
+            msg_rmv.innerHTML = 'Preencha o campo de remoção de aluno.'
+        }else if(listaAlunos.includes(ipt_rmv_aluno.value) == false){
+            msg_rmv.innerHTML = `Aluno não encontrado na lista`
+        }else{
+            listaAlunos.splice(listaAlunos.indexOf(ipt_rmv_aluno.value), 1)
+            msg_rmv.innerHTML = `Aluno ${ipt_rmv_aluno.value} foi removido(a) com sucesso!`
+        }
+    }
+    function atualizar(){
+        if(ipt_add_aluno.value == '' || ipt_rmv_aluno.value == ''){
+            msg_att.innerHTML = 'Preencha os campos de cadastro e remoção de aluno.'
+            if (ipt_add_aluno.value == ''){
+                msg_add.innerHTML = 'Preencha o campo de cadastro de aluno.'
+            }
+            if (ipt_rmv_aluno.value == ''){
+                msg_rmv.innerHTML = 'Preencha o campo de remoção de aluno.'
+            }
+        }else if(ipt_add_aluno.value == ipt_rmv_aluno.value){
+            msg_att.innerHTML = 'Nada foi alterado.'
+        }
+        else if(listaAlunos.includes(ipt_add_aluno.value) == false && listaAlunos.includes(ipt_rmv_aluno.value) == false){
+            listaAlunos.push(ipt_add_aluno.value)
+            msg_att.innerHTML = `Aluno ${ipt_add_aluno.value} foi cadastrado(a) com sucesso! Mas ${ipt_rmv_aluno.value} não existe na lista.`
+        }
+        else if(listaAlunos.includes(ipt_add_aluno.value) == true && listaAlunos.includes(ipt_rmv_aluno.value) == true){
+            listaAlunos.splice(listaAlunos.indexOf(ipt_rmv_aluno.value), 1)
+            msg_att.innerHTML = `Aluno ${ipt_rmv_aluno.value} foi removido(a) com sucesso! Mas ${ipt_add_aluno.value} já existe na lista.`
+        }
+        else if(listaAlunos.includes(ipt_add_aluno.value) == false && listaAlunos.includes(ipt_rmv_aluno.value) == true){
+            listaAlunos.splice(listaAlunos.indexOf(ipt_rmv_aluno.value), 1, ipt_add_aluno.value)
+            msg_att.innerHTML = `Atualização realizada com sucesso!`
+        }
+    }
+</script>

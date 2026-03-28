@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    let frutas = ['Abacate', 'Uva', 'Maçã', 12, 4.13, 'Pera', 'Pera']
+    console.log(frutas)
+
+    console.log('Tamanho do vetor: ', frutas.length)
+
+    console.log('Primeiro item: ', frutas[0])
+    
+    let ultima_fruta = frutas[frutas.length-1]
+    console.log('Ultimo item: ', ultima_fruta)
+
+    // coloca coisa no fim do array
+    frutas.push('Goiaba', 'Pera')
+    // coloca coisa no começo da lista
+    frutas.unshift('Banana')
+    console.log(frutas)
+
+    let existe_pera = frutas.includes()
+    let onde_pera = frutas.indexOf()
+
+    if (existe_pera){
+        console.log('Tem pera')
+        console.log('Ela está no indice: ', onde_pera)
+    }else{
+        console.log('Não tem pera')
+    }
+
+    // Remove o último item
+    frutas.pop();
+    //Remove o primeiro item
+    frutas.shift()
+    // Remove um item especifico (Onde começa, quantos tirar)
+    frutas.splice(2, 1)
+    console.log(frutas)
+</script>

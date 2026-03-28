@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 12</title>
+</head>
+<body>
+    <h1>Divisão Justa da Pizza (Com Gorjeta)</h1>
+    <p>Digite o sabor da pizza:</p>
+    <input type="text" id="ipt_sabor">
+    <p>Digite o preco da pizza:</p>
+    <input type="text" id="ipt_preco">
+    <p>Quantas pessoas vão pagar?</p>
+    <input type="text" id="ipt_pessoas">
+    <br><br>
+    <button onclick="calculo()">Ver valor por amigo</button>
+    <p id="txt_total"></p>
+</body>
+</html>
+<script>
+ function calculo(){
+    let preco = Number(ipt_preco.value)
+    let sabor = ipt_sabor.value
+    let amigos = Number(ipt_pessoas.value)
+    preco = preco+(preco*0.1)
+
+    txt_total.innerHTML = `Cada amigo vai colaborar com R$${(preco/amigos).toFixed(2)} para a pizza de ${sabor}.`
+ }
+</script>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="ipt_texto" oninput="analisar()">
+    <div id="div_msg"></div>
+</body>
+</html>
+<script>
+    function analisar(){
+        let txt = ipt_texto.value
+        let tamanho = txt.length
+        let indice_ponto_com = txt.indexOf('.com')
+        let indice_arroba = txt.indexOf('@')
+        let validacao_com = txt.endsWith('.com')
+        let validacao_br = txt.endsWith('.com.br')
+        let validacao_arroba = txt.startsWith('@')
+        let primeira_letra = txt[0]
+        let ultima_letra = txt[tamanho-1]
+        let tem_sptech = txt.includes('sptech')
+        let texto_minusculo = txt.toLowerCase()
+        let texto_maiusculo = txt.toUpperCase()
+
+
+        div_msg.innerHTML = `O tamanho do texto: ${tamanho}` 
+        if (tamanho <= 8){
+            div_msg.innerHTML += `<br>O texto tem até 8 caracteres`
+        }else{
+            div_msg.innerHTML += `<br>O texto mais 8 caracteres`
+        }
+            div_msg.innerHTML += `<br>Indice do .com ${indice_ponto_com}`
+        //Obter o indice do @ e validar se esta antes ou dps do .com, e se o texto termina em '.com' ou '.br'
+        if (indice_ponto_com > (indice_arroba+1) && indice_ponto_com > -1 && indice_arroba > -1 && (validacao_com || validacao_br) && !validacao_arroba){
+            div_msg.innerHTML += `<br>Email válido`
+        }else{
+            div_msg.innerHTML += `<br>Email inválido`
+        }
+            div_msg.innerHTML += `<br>Primeira letra: ${primeira_letra}`
+            div_msg.innerHTML += `<br>Ultima letra: ${ultima_letra}`
+
+        if (tem_sptech){
+            div_msg.innerHTML += `<br>Contém SPTECH`
+        }
+            div_msg.innerHTML += `<br>Apenas Minusculas: ${texto_minusculo}`
+            div_msg.innerHTML += `<br>Apenas Maiusculo: ${texto_maiusculo}`
+
+        //Desafio: Fazer a primeira letra ficar maiuscula e o resto minusculo
+
+        let ultima_letra_desafio = txt.substring(1)
+        // seleciona td entre o caractere no indice 1 até o último
+        // txt.substring(1, 10) seleciona do indice 1 até o 9 (10 é onde ele vai parar)
+
+        div_msg.innerHTML += `<br>Desafio: ${primeira_letra.toUpperCase()}${ultima_letra_desafio.toLowerCase()}`
+
+        let texto_trocado = txt.replace('i', '1')
+        // troca o primeiro i por 1
+        // txt.replaceAll('i', '1') troca tds os 'i's por 1
+
+        div_msg.innerHTML += `<br>Texto alterado: ${texto_trocado}`
+
+        let regex = new RegExp("[0-9]")
+        // verifica se tem um número (um caractere entre 0 e 9)
+        //[a-Z] (tem letra), [a-z] (letra minuscula), [A-Z] (letra maiuscula), [0-z] (letra ou numero)
+
+        let contem_numero = regex.test(txt)
+        // aplica a verificação no texto
+
+        if(contem_numero){
+        div_msg.innerHTML += `<br>Tem numero`
+        }else{
+        div_msg.innerHTML += `<br>Não tem numero`
+        }
+
+    }
+</script>

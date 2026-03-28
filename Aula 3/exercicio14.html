@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 14</title>
+</head>
+<body>
+    <style>
+        body{
+            background-image: url(https://e1.pxfuel.com/desktop-wallpaper/711/428/desktop-wallpaper-dbz-backgrounds-dragon-ball-z-background.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-attachment: fixed;
+        }
+    </style>
+    <h1 style="position-area: initial;">Transformações Saiyajin e Poder de Luta</h1>
+    <h3>Digite o Ki do Sayajin</h3>
+    <input type="text" id="ipt_ki">
+    <br>
+    <p>Transformar em...</p>
+    <button onclick="ssj1()" style="color: blue;font-family: fantasy;background-color:orange;font-size: large;">SSJ</button> <samp> </samp>
+    <button onclick="ssj2()" style="color: blue;font-family: fantasy;background-color:orange;font-size: large;">SSJ2</button> <samp> </samp>
+    <button onclick="ssj3()" style="color: blue;font-family: fantasy;background-color:orange;font-size: large;">SSJ3</button>
+    <br><br><h3 id="txt_final"></h3>
+</body>
+</html>
+<script>
+    let ki = 0
+    function ssj1(){
+        ki = Number(ipt_ki.value)
+        txt_final.innerHTML = `Após se transformar em SSJ, o ki desse Sayajin passa a ser de ${ki*50}`
+    }
+    function ssj2(){
+        ki = Number(ipt_ki.value)
+        txt_final.innerHTML = `Após se transformar em SSJ2, o ki desse Sayajin passa a ser de ${ki*100}`
+    }
+    function ssj3(){
+            ki = Number(ipt_ki.value)
+        txt_final.innerHTML = `Após se transformar em SSJ3, o ki desse Sayajin passa a ser de ${ki*200}`
+    }
+</script>

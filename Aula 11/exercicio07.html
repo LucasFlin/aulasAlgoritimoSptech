@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 7</title>
+</head>
+
+<body>
+    <h1>Bônus Bancário Inteligente</h1>
+    <p>Quantos depositos você fez no banco?</p>
+    <input type="text" id="ipt_deposito">
+    <p>Quanto você depositou?</p>
+    <input type="text" id="ipt_valor">
+    <button onclick="deposito()">Acompanhar grana</button>
+    <div id="div_saldo"></div>
+</body>
+
+</html>
+<script>
+    function deposito() {
+        let depositos = Number(ipt_deposito.value)
+        let valor = Number(ipt_valor.value)
+        let saldo = 0
+        let bonus = 1
+
+        div_saldo.innerHTML = ''
+        for (let i = 1; i <= depositos; i++) {
+            saldo = saldo + valor
+            if (bonus == 3) {
+                saldo = saldo + (saldo * 0.01)
+                bonus = 1
+            } else {
+                bonus++
+            }
+
+            div_saldo.innerHTML += `<br>${i}º mês: R$${saldo.toFixed(2)}`
+        }
+        div_saldo.innerHTML += `<br><br>Total guardado: R$${saldo.toFixed(2)}`
+    }
+</script>

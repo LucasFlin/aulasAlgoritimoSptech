@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 5</title>
+</head>
+
+<body>
+    <h1>Café com Leite na Medida Certa</h1>
+    <p>Quantas xícaras de café você já tomou?</p>
+    <input type="text" id="ipt_cafe">
+    <button onclick="cafe()">Ver a quantidade</button>
+    <div id="div_cafe"></div>
+</body>
+
+</html>
+
+<script>
+    function cafe() {
+        let cafe = Number(ipt_cafe.value)
+
+        div_cafe.innerHTML = ''
+
+        for (let i = 1; i <= cafe; i++) {
+            div_cafe.innerHTML += `<br><img width=300 src="leite.png"><img width=300 src="cafe.png"><img width=300 src="cafe.png">`
+        }
+    }
+</script>

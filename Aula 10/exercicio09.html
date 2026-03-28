@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pares no Intervalo</title>
+</head>
+<body>
+    <h1>Pares no Intervalo</h1>
+    <p>Intervalo de <input type="text" id="ipt_n1"> até <input type="text" id="ipt_n2"></p>
+    <button onclick="pares()">S2 Pares</button>
+    <div id="div_pares"></div>
+</body>
+</html>
+<script>
+    function pares(){
+        let n1 = Number(ipt_n1.value)
+        let n2 = Number(ipt_n2.value)
+
+        div_pares.innerHTML = ``
+        while(n1 <= n2){
+            if ((n1 % 2) == 0){
+                div_pares.innerHTML += `<br>${n1}`
+                n1++
+            }else{
+                n1++
+            }
+        }
+    }
+</script>

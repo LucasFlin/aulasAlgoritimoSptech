@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 1</title>
+</head>
+
+<body>
+    <h1>Números Primos</h1>
+    <p>Digite um numero: </p>
+    <input type="text" id="ipt_n"><button onclick="primos()">Ver divisores</button>
+    <br>
+    <div id="div_primos"></div>
+</body>
+
+</html>
+<script>
+    function primos() {
+        let n = Number(ipt_n.value)
+        let primos = 0
+
+        div_primos.innerHTML = `Divisores de ${n}:<br>`
+
+        for(let i =0;i<=n;i++){
+            
+            if (n % i == 0){
+                div_primos.innerHTML += `<br> ${i} <br>`
+                primos++
+            }else{
+                
+            }
+        }
+        if (primos <= 2){
+            div_primos.innerHTML += `<br>${n} é um número primo!`
+        }
+    }
+</script>

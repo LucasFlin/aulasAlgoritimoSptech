@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 2</title>
+</head>
+<body>
+    <h1>Classe Social em Tuvalu: Em Qual Você se Encaixa?</h1>
+    <p>Qual sua renda mensal?</p>
+    <input type="text" id="ipt_renda"><br>
+    <button onclick="analise()">Analisar Renda</button>
+    <p id="txt_classe"></p>
+</body>
+</html>
+<script>
+    function analise(){
+        let renda = Number(ipt_renda.value)
+
+        if(renda <= 250){
+            txt_classe.innerHTML = 'Classe E'
+        } else if(renda > 250 && renda <= 900){
+            txt_classe.innerHTML = 'Classe D'
+        } else if(renda > 900 && renda <= 2500){
+            txt_classe.innerHTML = 'Classe C'
+        } else if(renda > 2500 && renda <= 9500){
+            txt_classe.innerHTML = 'Classe B'
+        } else{
+            txt_classe.innerHTML = 'Classe A'
+        }
+    }
+</script>

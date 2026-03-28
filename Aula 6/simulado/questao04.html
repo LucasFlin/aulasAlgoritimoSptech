@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>Calculadora SPFlix</h1>
+
+  <div>
+      <p>Qualidade (720p ou 1080p ou 4K):</p>
+      <input type="text" id="ipt_qualidade">
+  </div>
+
+  <div style="display: flex; gap: 50px">
+    <div>
+      <p>Telas simultâneas - Na mesma casa:</p>
+      <input type="text" id="ipt_qtd_telas">
+    </div>
+
+    <div>
+      <p>Telas extras - Fora da residência:</p>
+      <input type="text" id="ipt_qtd_telas_extras">
+    </div>
+  </div>
+
+  <div>
+    <p>Quer fazer download ('sim' ou 'nao'):</p>
+    <input type="text" id="ipt_download">
+  </div>
+
+  <p></p>
+  <button onclick="exibirResultado()">Exibir Resultado</button>
+
+  <p></p>
+  <div id="div_mensagem"></div>
+
+</body>
+</html>
+<script>
+function exibirResultado() {
+    let qualidade = ipt_qualidade.value
+    let telas = Number(ipt_qtd_telas.value)
+    let telasExtras = Number(ipt_qtd_telas_extras.value)
+    let download = ipt_download.value
+    let total = 0
+    let totalTelas = 0
+    let numTelas = telas + telasExtras
+    let valorDownload = 0
+
+    if (qualidade == '720p'){
+        if (telas <= 2){
+            if(download == 'sim'){
+            totalTelas = 10+telasExtras*12.90
+            total = totalTelas+15
+            valorDownload = numTelas+5
+            total = (total+(total*(valorDownload/100))).toFixed(2)
+            div_mensagem.innerHTML = `O valor base do seu plano é R$15.00<br>
+                                    <br>O valor das telas do seu plano é R$${(totalTelas).toFixed(2)}<br>
+                                    <br>Você optou por fazer download e por isso sua conta irá subir em ${valorDownload}%<br>
+                                    <br>O valor total do seu plano é R$${total}<br>
+                                    <br>Se quiser dividir fica R$${(total/numTelas).toFixed(2)} pra cada!`
+            }
+            else if (download == 'nao'){
+            totalTelas = 10+telasExtras*12.90
+            total = totalTelas+15
+            valorDownload = 10
+            total = (total-(total*(valorDownload/100))).toFixed(2)
+            div_mensagem.innerHTML = `O valor base do seu plano é R$15.00<br>
+                                    <br>O valor das telas do seu plano é R$${(totalTelas).toFixed(2)}<br>
+                                    <br>Você optou por não fazer download e por isso sua conta será reduzida em ${valorDownload}%<br>
+                                    <br>O valor total do seu plano é R$${total}<br>
+                                    <br>Se quiser dividir fica R$${(total/numTelas).toFixed(2)} pra cada!`
+                                }
+        }
+        else if (telas == 3 || telas == 4){
+            if(download == 'sim'){
+            totalTelas = 20+telasExtras*12.90
+            total = totalTelas+15
+            valorDownload = numTelas+5
+            total = (total+(total*(valorDownload/100))).toFixed(2)
+            div_mensagem.innerHTML = `O valor base do seu plano é R$15.00<br>
+                                    <br>O valor das telas do seu plano é R$${(totalTelas).toFixed(2)}<br>
+                                    <br>Você optou por fazer download e por isso sua conta irá subir em ${valorDownload}%<br>
+                                    <br>O valor total do seu plano é R$${total}<br>
+                                    <br>Se quiser dividir fica R$${(total/numTelas).toFixed(2)} pra cada!`
+                                }
+            else if (download == 'nao'){
+            totalTelas = 20+telasExtras*12.90
+            total = totalTelas+15
+            valorDownload = 10
+            total = (total-(total*(valorDownload/100))).toFixed(2)
+            div_mensagem.innerHTML = `O valor base do seu plano é R$15.00<br>
+                                    <br>O valor das telas do seu plano é R$${(totalTelas).toFixed(2)}<br>
+                                    <br>Você optou por não fazer download e por isso sua conta será reduzida em ${valorDownload}%<br>
+                                    <br>O valor total do seu plano é R$${total}<br>
+                                    <br>Se quiser dividir fica R$${(total/numTelas).toFixed(2)} pra cada!`
+                                }
+        } 
+        else {
+            if (download == 'sim'){
+            totalTelas = 30+telasExtras*12.90
+            total = totalTelas+15
+            valorDownload = numTelas+5
+            total = (total+(total*(valorDownload/100))).toFixed(2)
+            div_mensagem.innerHTML = `O valor base do seu plano é R$15.00<br>
+                                    <br>O valor das telas do seu plano é R$${(totalTelas).toFixed(2)}<br>
+                                    <br>Você optou por fazer download e por isso sua conta irá subir em ${valorDownload}%<br>
+                                    <br>O valor total do seu plano é R$${total}<br>
+                                    <br>Se quiser dividir fica R$${(total/numTelas).toFixed(2)} pra cada!`
+                                }
+            else if (download == 'nao'){
+            totalTelas = 30+telasExtras*12.90
+            total = totalTelas+15
+            valorDownload = 10
+            total = (total-(total*(valorDownload/100))).toFixed(2)
+            div_mensagem.innerHTML = `O valor base do seu plano é R$15.00<br>
+                                    <br>O valor das telas do seu plano é R$${(totalTelas).toFixed(2)}<br>
+                                    <br>Você optou por não fazer download e por isso sua conta será reduzida em ${valorDownload}%<br>
+                                    <br>O valor total do seu plano é R$${total}<br>
+                                    <br>Se quiser dividir fica R$${(total/numTelas).toFixed(2)} pra cada!`
+            }
+        }
+    } else if (qualidade=='1080p'){
+        if (telas <= 2){
+            if(download == 'sim'){
+            totalTelas = 10+telasExtras*12.90
+            total = totalTelas+20
+            valorDownload = numTelas+5
+            total = (total+(total*(valorDownload/100))).toFixed(2)
+            div_mensagem.innerHTML = `O valor base do seu plano é R$15.00<br>
+                                    <br>O valor das telas do seu plano é R$${(totalTelas).toFixed(2)}<br>
+                                    <br>Você optou por fazer download e por isso sua conta irá subir em ${valorDownload}%<br>
+                                    <br>O valor total do seu plano é R$${total}<br>
+                                    <br>Se quiser dividir fica R$${(total/numTelas).toFixed(2)} pra cada!`
+                                }
+            else if (download == 'nao'){
+            totalTelas = 10+telasExtras*12.90
+            total = totalTelas+20
+            valorDownload = 10
+            total = (total-(total*(valorDownload/100))).toFixed(2)
+            div_mensagem.innerHTML = `O valor base do seu plano é R$15.00<br>
+                                    <br>O valor das telas do seu plano é R$${(totalTelas).toFixed(2)}<br>
+                                    <br>Você optou por não fazer download e por isso sua conta será reduzida em ${valorDownload}%<br>
+                                    <br>O valor total do seu plano é R$${total}<br>
+                                    <br>Se quiser dividir fica R$${(total/numTelas).toFixed(2)} pra cada!`
+            }
+        }
+        else if (telas == 3 || telas == 4){
+            if(download == 'sim'){
+            totalTelas = 20+telasExtras*12.90
+            total = totalTelas+20
+            valorDownload = numTelas+5
+            total = (total+(total*(valorDownload/100))).toFixed(2)
+            div_mensagem.innerHTML = `O valor base do seu plano é R$15.00<br>
+                                    <br>O valor das telas do seu plano é R$${(totalTelas).toFixed(2)}<br>
+                                    <br>Você optou por fazer download e por isso sua conta irá subir em ${valorDownload}%<br>
+                                    <br>O valor total do seu plano é R$${total}<br>
+                                    <br>Se quiser dividir fica R$${(total/numTelas).toFixed(2)} pra cada!`
+                }
+            else if (download == 'nao'){
+            totalTelas = 20+telasExtras*12.90
+            total = totalTelas+20
+            valorDownload = 10
+            total = (total-(total*(valorDownload/100))).toFixed(2)
+            div_mensagem.innerHTML = `O valor base do seu plano é R$15.00<br>
+                                    <br>O valor das telas do seu plano é R$${(totalTelas).toFixed(2)}<br>
+                                    <br>Você optou por não fazer download e por isso sua conta será reduzida em ${valorDownload}%<br>
+                                    <br>O valor total do seu plano é R$${total}<br>
+                                    <br>Se quiser dividir fica R$${(total/numTelas).toFixed(2)} pra cada!`
+            }
+        } 
+        else {
+            if (download == 'sim'){
+            totalTelas = 30+telasExtras*12.90
+            total = totalTelas+20
+            valorDownload = numTelas+5
+            total = (total+(total*(valorDownload/100))).toFixed(2)
+            div_mensagem.innerHTML = `O valor base do seu plano é R$15.00<br>
+                                    <br>O valor das telas do seu plano é R$${(totalTelas).toFixed(2)}<br>
+                                    <br>Você optou por fazer download e por isso sua conta irá subir em ${valorDownload}%<br>
+                                    <br>O valor total do seu plano é R$${total}<br>
+                                    <br>Se quiser dividir fica R$${(total/numTelas).toFixed(2)} pra cada!`
+                                }
+            else if (download == 'nao'){
+            totalTelas = 30+telasExtras*12.90
+            total = totalTelas+20
+            valorDownload = 10
+            total = (total-(total*(valorDownload/100))).toFixed(2)
+            div_mensagem.innerHTML = `O valor base do seu plano é R$15.00<br>
+                                    <br>O valor das telas do seu plano é R$${(totalTelas).toFixed(2)}<br>
+                                    <br>Você optou por não fazer download e por isso sua conta será reduzida em ${valorDownload}%<br>
+                                    <br>O valor total do seu plano é R$${total}<br>
+                                    <br>Se quiser dividir fica R$${(total/numTelas).toFixed(2)} pra cada!`
+            }
+        }
+    } else if (qualidade=='4k'){
+        if (telas <= 2){
+            if(download == 'sim'){
+            totalTelas = 10+telasExtras*12.90
+            total = totalTelas+25
+            valorDownload = numTelas+5
+            total = (total+(total*(valorDownload/100))).toFixed(2)
+            div_mensagem.innerHTML = `O valor base do seu plano é R$15.00<br>
+                                    <br>O valor das telas do seu plano é R$${(totalTelas).toFixed(2)}<br>
+                                    <br>Você optou por fazer download e por isso sua conta irá subir em ${valorDownload}%<br>
+                                    <br>O valor total do seu plano é R$${total}<br>
+                                    <br>Se quiser dividir fica R$${(total/numTelas).toFixed(2)} pra cada!`
+                                }
+            else if (download == 'nao'){
+            totalTelas = 10+telasExtras*12.90
+            total = totalTelas+25
+            valorDownload = 10
+            total = (total-(total*(valorDownload/100))).toFixed(2)
+            div_mensagem.innerHTML = `O valor base do seu plano é R$15.00<br>
+                                    <br>O valor das telas do seu plano é R$${(totalTelas).toFixed(2)}<br>
+                                    <br>Você optou por não fazer download e por isso sua conta será reduzida em ${valorDownload}%<br>
+                                    <br>O valor total do seu plano é R$${total}<br>
+                                    <br>Se quiser dividir fica R$${(total/numTelas).toFixed(2)} pra cada!`
+            }
+        }
+        else if (telas == 3 || telas == 4){
+            if(download == 'sim'){
+            totalTelas = 20+telasExtras*12.90
+            total = totalTelas+25
+            valorDownload = numTelas+5
+            total = (total+(total*(valorDownload/100))).toFixed(2)
+            div_mensagem.innerHTML = `O valor base do seu plano é R$15.00<br>
+                                    <br>O valor das telas do seu plano é R$${(totalTelas).toFixed(2)}<br>
+                                    <br>Você optou por fazer download e por isso sua conta irá subir em ${valorDownload}%<br>
+                                    <br>O valor total do seu plano é R$${total}<br>
+                                    <br>Se quiser dividir fica R$${(total/numTelas).toFixed(2)} pra cada!`
+                }
+            else if (download == 'nao'){
+            totalTelas = 20+telasExtras*12.90
+            total = totalTelas+25
+            valorDownload = 10
+            total = (total-(total*(valorDownload/100))).toFixed(2)
+            div_mensagem.innerHTML = `O valor base do seu plano é R$15.00<br>
+                                    <br>O valor das telas do seu plano é R$${(totalTelas).toFixed(2)}<br>
+                                    <br>Você optou por não fazer download e por isso sua conta será reduzida em ${valorDownload}%<br>
+                                    <br>O valor total do seu plano é R$${total}<br>
+                                    <br>Se quiser dividir fica R$${(total/numTelas).toFixed(2)} pra cada!`
+            }
+        } 
+        else {
+            if (download == 'sim'){
+            totalTelas = 30+telasExtras*12.90
+            total = totalTelas+25
+            valorDownload = numTelas+5
+            total = (total+(total*(valorDownload/100))).toFixed(2)
+            div_mensagem.innerHTML = `O valor base do seu plano é R$15.00<br>
+                                    <br>O valor das telas do seu plano é R$${(totalTelas).toFixed(2)}<br>
+                                    <br>Você optou por fazer download e por isso sua conta irá subir em ${valorDownload}%<br>
+                                    <br>O valor total do seu plano é R$${total}<br>
+                                    <br>Se quiser dividir fica R$${(total/numTelas).toFixed(2)} pra cada!`
+                                }
+            else if (download == 'nao'){
+            totalTelas = 30+telasExtras*12.90
+            total = totalTelas+25
+            valorDownload = 10
+            total = (total-(total*(valorDownload/100))).toFixed(2)
+            div_mensagem.innerHTML = `O valor base do seu plano é R$15.00<br>
+                                    <br>O valor das telas do seu plano é R$${(totalTelas).toFixed(2)}<br>
+                                    <br>Você optou por não fazer download e por isso sua conta será reduzida em ${valorDownload}%<br>
+                                    <br>O valor total do seu plano é R$${total}<br>
+                                    <br>Se quiser dividir fica R$${(total/numTelas).toFixed(2)} pra cada!`
+            }
+        }
+    }
+}
+</script>

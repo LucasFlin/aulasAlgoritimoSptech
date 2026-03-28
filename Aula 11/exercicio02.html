@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 2</title>
+</head>
+
+<body>
+    <h1>Carona Compartilhada</h1>
+    <p>Quantas pessoas vão no carro?</p>
+    <input type="text" id="ipt_pessoas">
+    <button onclick="carona()">#Partiu Carona</button>
+    <div id="div_carona"></div>
+</body>
+
+</html>
+<script>
+    function carona() {
+        let pessoas = Number(ipt_pessoas.value)
+
+        div_carona.innerHTML = ''
+
+        for (let i = 1; i <= pessoas; i++) {
+            if (i == 1) {
+                div_carona.innerHTML += `Entrou o ${i}º passageiro (que é o motorista)<br>`
+            } else if (i <= 5) {
+                div_carona.innerHTML += `Entrou o ${i}º passageiro<br>`
+            } else {
+                div_carona.innerHTML += `O ${i}º passageiro vai ter que esperar<br>`
+            }
+
+        }
+    }
+</script>

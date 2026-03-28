@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 20</title>
+</head>
+<body>
+    <h1>Peso no Elevador: Será Que Ele Vai se Mover?</h1>
+    <samp>Quantos homens tem no elevador? </samp>
+    <input type="text" id="ipt_homem"><br><br>
+    <samp>Quantas mulheres tem no elevador? </samp>
+    <input type="text" id="ipt_mulher">
+    <button onclick="elevador()">Ligar elevador</button>
+    <div id="txt_msg"></div>
+</body>
+</html>
+<script>
+    function elevador(){
+        let homens = Number(ipt_homem.value)
+        let mulheres = Number(ipt_mulher.value)
+        let elevador = homens*90 + mulheres*70
+
+        if(elevador <= 500){
+            txt_msg.innerHTML = `<samp style="color: green;">Elevador vai se mover, pois está com ${elevador}kg</samp>`
+        }else{
+            txt_msg.innerHTML = `<samp style="color: red;">Precisa perder ${elevador-500}kg para mover o elevador</samp>`
+        }
+    }
+</script>

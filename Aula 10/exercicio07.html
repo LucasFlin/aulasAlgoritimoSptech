@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Viva o 7!</title>
+</head>
+<body>
+    <h1>Viva o 7!</h1>
+    <p>Digite um número entre 0 e 200: <input type="text" id="ipt_num"></p>
+    <button onclick="multiplos()">Viva o 7!</button>
+    <div id="div_multiplos"></div>
+</body>
+</html>
+<script>
+    function multiplos(){
+        let i = 0
+        let num = Number(ipt_num.value)
+        
+        div_multiplos.innerHTML = ''
+        if(num >= 0 && num <= 200){
+            while(i <= num){
+                if((i % 7) == 0){
+                    div_multiplos.innerHTML += `<br>${i}`
+                    i++
+                }else { 
+                    i++
+                }
+            }
+        }
+    }
+</script>

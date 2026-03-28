@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Papagaio</title>
+</head>
+<body>
+    <h1>Papagaio Falante</h1>
+    <p>Digite uma frase: <input type="text" id="ipt_frase"></p>
+    <p>Digite um num: <input type="text" id="ipt_num"></p>
+    <button onclick="papagaio()">Papagaio</button>
+</body>
+</html>
+<script>
+    function papagaio(){
+        let i = 1
+        let frase = ipt_frase.value
+        let num = Number(ipt_num.value)
+
+        while (i <= num){
+            alert(frase)
+            i++
+        }
+    }
+</script>

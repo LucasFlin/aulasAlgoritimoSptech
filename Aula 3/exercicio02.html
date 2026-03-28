@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 2</title>
+</head>
+<body>
+    <h1>Dividindo a pizza!</h1>
+    <p>Quanto custou a pizza?</p>
+    <input type="text" id="ipt_valor">
+    <p>Quantas pessoas vão pagar?</p>
+    <input type="text" id="ipt_pessoas">
+    <br><br>
+    <button onclick="divisao()">#lovePizza</button>
+</body>
+</html>
+<script>
+    function divisao(){
+        alert("Cada um dos "+ipt_pessoas.value+" amigos vai pagar R$"+(Number(ipt_valor.value)/Number(ipt_pessoas.value)))
+    }
+</script>

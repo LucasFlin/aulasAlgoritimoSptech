@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Você pode entrar?</h1>
+    <p>Digite sua idade</p>
+    <input type="text" id="ipt_idade">
+    <p>Está acompanhado de um adulto</p>
+    <input type="text" id="ipt_adulto">
+    <p>Tem convite?</p>
+    <input type="text" id="ipt_convite">
+    <button onclick="validar()">Posso entrar?</button>
+    <div id="div_msg"></div>
+</body>
+</html>
+<script>
+function validar(){
+    let idade = Number(ipt_idade.value)
+    let convite = ipt_convite.value
+    let adulto = ipt_adulto.value
+
+    /*if (idade >= 18 && convite == 'sim'){
+            div_msg.innerHTML = `Entra aí!`
+    }else{
+        div_msg.innerHTML = `Não pode, vai pra casa.`
+    }*/
+
+   /*if (idade < 18 || convite == 'não'){
+            div_msg.innerHTML = `Não pode, vai pra casa.`
+    }else{
+        div_msg.innerHTML = `Entra aí!`
+    }*/
+
+    if (convite == 'não' || (idade < 18 && adulto == 'não')){
+        div_msg.innerHTML = `Não pode, vai pra casa.`
+    } else {
+        div_msg.innerHTML = `Entra aí!`
+    }
+}
+</script>

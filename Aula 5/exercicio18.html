@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 18</title>
+</head>
+<body>
+    <h1>Cálculo de Média: Aprovado ou Reprovado?</h1>
+    <samp>Digite a nota 1: </samp><input type="text" id="ipt_n1"><br><br>
+    <samp>Digite a nota 2: </samp><input type="text" id="ipt_n2"><br><br>
+    <button onclick="media()">Verificar situação</button>
+    <p id="txt_nota"></p>
+</body>
+</html>
+<script>
+    function media(){
+        let n1 = Number(ipt_n1.value)
+        let n2 = Number(ipt_n2.value)
+        let media = (n1+n2)/2
+
+        console.log(media)
+        if (media >= 6){
+            txt_nota.innerHTML = 'Parabéns, aprovado!'
+        }else{
+            txt_nota.innerHTML = 'Tente outra vez...'
+        }
+    }
+</script>

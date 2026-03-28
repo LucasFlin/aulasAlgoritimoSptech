@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 4</title>
+</head>
+<body>
+    <h1>O Ki dos Sayajins!</h1>
+    <p>Qual o nome do guerreiro?</p>
+    <input type="text" id="ipt_nome">
+    <p>Qual o Ki normal do Sayajin?</p>
+    <input type="text" id="ipt_ki">
+    <br>
+    <button onclick="verKi()">Ver Ki em cada forma</button>
+</body>
+</html>
+<script>
+    function verKi(){
+        alert("O Ki de "+ipt_nome.value+" na forma Super Sayajin é "+(Number(ipt_ki.value)*50))
+        alert("O Ki de "+ipt_nome.value+" na forma Super Sayajin 2 é "+(Number(ipt_ki.value)*100))
+    }
+</script>

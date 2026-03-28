@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabuada</title>
+</head>
+<body>
+    <h1>Tabuada Colorida</h1>
+    <p>
+    <select name="tabuada" id="slct_num">
+        <option value=""></option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+    </select>
+     x 
+    <input type="text" id="ipt_tabuada">
+    <button onclick="tabuada()">=</button>
+    </p>
+    <div id="div_tabuada"></div>
+</body>
+</html>
+<script>
+    function tabuada(){
+        let n1 = Number(slct_num.value)
+        let n2 = Number(ipt_tabuada.value)
+        let i = 1
+        div_tabuada.innerHTML = ''
+
+        if(n1 == ''){
+            alert('Selecione um número.')
+        }else{
+            while (i <= n2){
+                if(((i * n1) % 2) == 0){
+                    div_tabuada.innerHTML += `<br><samp style='color: blue;'>${n1} x ${i} = ${n1 * i}</samp><br>`
+                    i++
+                }else{
+                    div_tabuada.innerHTML += `<br><samp style='color: red;'>${n1} x ${i} = ${n1 * i}</samp><br>`
+                    i++
+                }
+            }
+        }
+    }
+</script>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Viagens</title>
+</head>
+<body>
+    <h1>Cadastro de Viagens</h1>
+    <p>Para onde você foi?</p>
+    <input type="text" id="ipt_destino">
+    <br><p>Quanto você gastou?</p>
+    <input type="text" id="ipt_gasto">
+    <br><button onclick="cadastrar()">Cadastrar</button>
+    <br><br>
+    <h3>Busca um lugar:</h3>
+    <input type="text" id="ipt_busca">
+    <br><button onclick="buscar()">Buscar</button>
+    <p id="msg_busca"></p>
+</body>
+</html>
+<script>
+    let destino = []
+    let destino2 = []
+    let gasto = []
+    let gasto2 = []
+    function cadastrar(){
+        if (destino.includes(ipt_destino.value) == false){
+            destino.push(ipt_destino.value)
+            gasto.push(ipt_gasto.value)
+        }else{
+            destino2.push(ipt_destino.value)
+            gasto2.push(ipt_gasto.value)
+        }
+        console.log(`Destinos: ${destino}, Gastos ${gasto}, reserva: ${destino2} e ${gasto2}`)
+    }
+    function buscar(){
+        let busca = ipt_busca.value
+
+        if (destino.includes(busca) == false && destino2.includes(busca) == false){
+            msg_busca.innerHTML = `Você nunca visitou "${busca}"`
+            console.log('if 1')
+        }else if (destino.includes(busca) == true && destino2.includes(busca) == false){
+            console.log('if 2')
+            msg_busca.innerHTML = `Você já visitou "${busca}" e gastou R$${gasto[destino.indexOf(busca)]}`
+        }else if (destino.includes(busca) == true && destino2.includes(busca) == true){
+            console.log('if 3')
+            msg_busca.innerHTML = `Você já visitou "${busca}" e gastou R$${gasto[destino.lastIndexOf(busca)]} da primeira vez e R$${gasto2[destino2.lastIndexOf(busca)]} da última vez`
+        }
+        console.log('botão apertado')
+    }
+</script>

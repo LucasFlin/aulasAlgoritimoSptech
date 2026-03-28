@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 8</title>
+</head>
+<body>
+    <h1>Banco Virtual: Depósitos e Retiradas</h1>
+    <p>Digite o valor para realizar a transação</p>
+    <input type="text" id="ipt_valor">
+    <br><br>
+    <button onclick="depositar()">Depositar</button>
+    <button onclick="retirar()">Retirar</button>
+</body>
+</html>
+<script>
+    let saldo = 0
+    function depositar(){
+        let valor = Number(ipt_valor.value)
+        saldo = saldo + valor
+        alert(`Depósito de R$${valor} efetuado! Saldo atual: R$${saldo}`)
+    }
+    function retirar(){
+        let valor = Number(ipt_valor.value)
+        saldo = saldo - valor
+        alert(`Retirada de R$${valor} efetuado! Saldo atual: R$${saldo}`)
+    }
+</script>

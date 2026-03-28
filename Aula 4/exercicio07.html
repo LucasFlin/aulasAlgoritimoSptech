@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 7</title>
+</head>
+<body>
+    <h1>Cheque Especial do Banco XPTO</h1>
+    <p>Digite o saldo da conta:</p>
+    <input type="text" id="ipt_saldo">
+    <p>Quanto você quer debitar? </p>
+    <input type="text" id="ipt_debito"><br><br>
+    <button onclick="checar()">Analizar conta</button>
+    <div id="txt_saldo"></div>
+</body>
+</html>
+<script>
+    function checar(){
+        let saldo = Number(ipt_saldo.value)
+        let debito = Number(ipt_debito.value)
+        saldo = saldo-debito
+        let mensagem = saldo < 0 ? `<span style="color: red;font-weight: bold;"> O saldo atual da conta corrente é R$${saldo} </span>` : `O saldo atual da conta corrente é R$${saldo}`
+        txt_saldo.innerHTML = mensagem
+        
+        /*if(saldo<0){
+            txt_saldo.innerHTML = `<span style="color: red;font-weight: bold;"> O saldo atual da conta corrente é R$${saldo} </span>`
+        }else{
+            txt_saldo.innerHTML = `O saldo atual da conta corrente é R$${saldo}`
+        }*/
+    }
+</script>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 2</title>
+</head>
+<body>
+    <h1>Simulador de Preferências de Compras: Será que Robervaldo Gostaria?</h1>
+    <p>Qual o tamanho da tela?</p>
+    <input type="text" id="ipt_tela">
+    <p>Qual a cor do celular? (Escolha entre Preto, Prata, Azul e Vermelho)</p>
+    <input type="text" id="ipt_cor">
+    <br>
+    <button onclick="avaliar()">Será que ele gosta?</button>
+    <div id="div_gostou"></div>
+</body>
+</html>
+<script>
+    function avaliar(){
+        let tela = Number(ipt_tela.value)
+        let cor = ipt_cor.value
+
+        if (tela >= 6.5 && cor == 'Preto' || cor == 'Prata'){
+            div_gostou.innerHTML = `<img width=500 src="Feliz.png" alt="">`
+        } else {
+            div_gostou.innerHTML = `<img width=500 src="Decepcao.png" alt="">`
+        }
+    }
+</script>

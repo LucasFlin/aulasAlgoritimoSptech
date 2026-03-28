@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo For</title>
+</head>
+
+<body>
+    <button onclick="botao()">Botão</button>
+    <!-- button[botao()]{Botão} -->
+    <div id="div_msg"></div>
+    <div id="div_msg2"></div>
+</body>
+
+</html>
+<script>
+    function botao() {
+        let contador = 0
+        let i = 0
+
+        div_msg.innerHTML = ''
+        div_msg2.innerHTML = ''
+
+        while (contador < 10) {
+            div_msg.innerHTML += 'While ' + contador + '<br>'
+            contador++
+        }
+
+        for (let i = 0; i < 10; i++); {
+            div_msg2.innerHTML += 'For ' + i + '<br>'
+        }
+    }
+</script>

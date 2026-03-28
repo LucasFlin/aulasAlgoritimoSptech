@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corrida</title>
+</head>
+<body>
+    <h1>Corrida de Voltas</h1>
+    <p>Quantas voltas o carro dará? <input type="text" id="ipt_corrida"></p>
+    <button onclick="correr()">Iniciar corrida</button>
+    <div id="div_corrida"></div>
+</body>
+</html>
+<script>
+    function correr(){
+        let voltas = Number(ipt_corrida.value)
+        let i = 1
+            div_corrida.innerHTML = ``
+        while(i <= voltas){
+            div_corrida.innerHTML += `<br>Carro dando a ${i}ª volta`
+            i++
+        }
+        div_corrida.innerHTML += '<br>Corrida Finalizada!'
+    }
+</script>

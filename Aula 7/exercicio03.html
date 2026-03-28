@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 3</title>
+</head>
+<body>
+    <h1>Simulador de Preço do Bilhete Único de São Paulo</h1>
+    <select name="Tipo de Passageiro" id="slct_passageiro">
+        <option value=""></option>
+        <option value="comum">Comum</option>
+        <option value="estudante">Estudante</option>
+        <option value="idoso">Idoso/PNE</option>
+    </select>
+    <br> <br>
+    <select name="Passagem" id="slct_passagem">
+        <option value=""></option>
+        <option value="unica">Passagem Única</option>
+        <option value="integ">Passagem Integração</option>
+    </select>
+    <br>
+    <button onclick="preco()">Simular Preço</button>
+    <div id="div_msg"></div>
+</body>
+</html>
+<script>
+    function preco(){
+        let passageiro = slct_passageiro.value
+        let passagem = slct_passagem.value
+        let precoPassagem = 0
+
+        if (passagem == 'unica'){
+            precoPassagem = 4.40
+        } else if (passagem == 'integ'){
+            precoPassagem = 5.90
+        }
+        if (passageiro == 'comum'){
+            div_msg.innerHTML = `Valor da passagem escolhida: R$${precoPassagem.toFixed(2)}`
+        }else if (passageiro == 'estudante'){
+            div_msg.innerHTML = `Valor da passagem escolhida: R$${(precoPassagem/2).toFixed(2)}`
+        }else if (passageiro == 'idoso'){
+            div_msg.innerHTML = `Valor da passagem escolhida: R$00,00`
+        }
+    }
+</script>

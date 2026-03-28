@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 13</title>
+</head>
+<body>
+    <h1>Cálculo de Gastos com Transporte</h1>
+    <p>Digite o valor da passagem de ônibus:</p>
+    <input type="text" id="ipt_passagem">
+    <p>Quantas viagens você faz por mês?</p>
+    <input type="text" id="ipt_viagens">
+    <p>Digite a distância até sua casa (em km)</p>
+    <input type="text" id="ipt_distancia">
+    <br><br>
+    <button onclick="calculo()">Calcular VT</button>
+    <p id="txt_total"></p>
+</body>
+</html>
+<script>
+    function calculo(){
+        let passagem = Number(ipt_passagem.value)
+        let viagemCarro = (Number(ipt_viagens.value)*0.1)
+        let viagemOnibus = (Number(ipt_viagens.value)*0.9)
+        let distancia = Number(ipt_distancia.value)
+
+        txt_total.innerHTML = `Você vai gastar R$${((viagemCarro*distancia)*0.75+viagemOnibus*passagem).toFixed(2)} por mês com transporte.`
+    }
+</script>

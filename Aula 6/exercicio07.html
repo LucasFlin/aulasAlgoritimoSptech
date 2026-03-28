@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 7</title>
+</head>
+<body>
+    <h1>Consumo de Calorias: Sua Dieta Está Saudável?</h1>
+    <p>Quantos pães fanceses você tem comido por dia?</p>
+    <input type="text" id="ipt_pao">
+    <p>Quantos pacotes de bolacha você tem comido por dia?</p>
+    <input type="text" id="ipt_bolacha">
+    <p>Quantos copos de achocolatado você tem tomado por dia?</p>
+    <input type="text" id="ipt_chocolate"><br><br>
+    <button onclick="verificar()">Verificar calorias</button>
+    <p id="txt_dieta"></p>
+</body>
+</html>
+<script>
+function verificar(){
+    let pao = Number(ipt_pao.value)*50
+    let bolacha = Number(ipt_bolacha.value)*80
+    let chocolate = Number(ipt_chocolate.value)*70
+    let total = pao + bolacha + chocolate
+
+    if (total < 200){
+        txt_dieta.innerHTML = 'Parabéns, você vai ficar em forma!'
+    } else if(total >= 200 && total <= 400){
+        txt_dieta.innerHTML = 'Cuidado, vai ficar menos saudavel!'
+    } else {
+        txt_dieta.innerHTML = 'Alerta critico de saúde!!!'
+    }
+}
+</script>

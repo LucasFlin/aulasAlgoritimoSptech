@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio</title>
+</head>
+<body>
+    <h1>Adivinhe o Ranking da Competição</h1>
+    <p>1º lugar </p><input type="text" id="ipt_primeiro_nome">
+    <p>2º lugar </p><input type="text" id="ipt_segundo_nome">
+    <p>3º lugar </p><input type="text" id="ipt_terceiro_nome">
+    <p>4º lugar </p><input type="text" id="ipt_quarto_nome">
+    <p>5º lugar </p><input type="text" id="ipt_quinto_nome">
+
+    <button onclick="(competicao())">Exibir Resultado</button>
+    <div id="div_msg"></div>
+    <br><br>
+    <h2>Meus Campeões: </h2>
+    <input type="text" id="ipt_personalizados"> <button onclick="meuRanking()">Adicionar</button>
+    <p id="msg_lista"></p> <br><br>
+    <h4>Buscar Campeão: </h4>
+    <input type="text" id="ipt_busca"> <button onclick="pesquisa()">Pesquisar</button>
+    <p id="msg_busca"></p>
+</body>
+</html>
+<script>
+    let ganhadores = ['felipe','rodolfo','john','silvio','bianca']
+    function competicao(){
+        let palpite = [ipt_primeiro_nome.value, ipt_segundo_nome.value, ipt_terceiro_nome.value, ipt_quarto_nome.value, ipt_quinto_nome.value]
+        let acertos = 0
+        let erros = 0
+        
+        if(palpite[0].toLowerCase() == ganhadores[0]){
+            acertos++
+            div_msg.innerHTML = `${ipt_primeiro_nome.value} está no primeiro lugar!<br>`
+        }else{
+            erros++
+            div_msg.innerHTML = `${ipt_primeiro_nome.value} não está no primeiro lugar.<br>`
+        }
+        if(palpite[1].toLowerCase() == ganhadores[1]){
+            acertos++
+            div_msg.innerHTML += `${ipt_segundo_nome.value} está no segundo lugar!<br>`
+        }else{
+            erros++
+            div_msg.innerHTML += `${ipt_segundo_nome.value} não está no segundo lugar.<br>`
+        }
+        if(palpite[2].toLowerCase() == ganhadores[2]){
+            acertos++
+            div_msg.innerHTML += `${ipt_terceiro_nome.value} está no terceiro lugar!<br>`
+        }else{
+            erros++
+            div_msg.innerHTML += `${ipt_terceiro_nome.value} não está no terceiro lugar.<br>`
+        }
+        if(palpite[3].toLowerCase() == ganhadores[3]){
+            acertos++
+            div_msg.innerHTML += `${ipt_quarto_nome.value} está no quarto lugar!<br>`
+        }else{
+            erros++
+            div_msg.innerHTML += `${ipt_quarto_nome.value} não está no quarto lugar.<br>`
+        }
+        if(palpite[4].toLowerCase() == ganhadores[4]){
+            acertos++
+            div_msg.innerHTML += `${ipt_quinto_nome.value} está no quinto lugar!<br>`
+        }else{
+            erros++
+            div_msg.innerHTML += `${ipt_quinto_nome.value} não está no quinto lugar.<br>`
+        }
+        if (acertos > erros){
+            div_msg.innerHTML += `<br>Você conhece bem essa competição!<br>`
+        }else{
+            div_msg.innerHTML += `<br>Você precisa acompanhar mais essa competição!<br>`
+        }
+        
+        div_msg.innerHTML += `<h3>O vencedor é ${ganhadores[0].toUpperCase()}!! 🥇</h3>`
+    }
+    
+    let ranking = []
+    let ranking2 = []
+
+    function meuRanking(){
+        ranking.push(ipt_personalizados.value)
+        ranking2.push((ipt_personalizados.value).toLowerCase())
+        msg_lista.innerHTML = `Seus campeões: ${ranking}`
+    }
+    function pesquisa(){
+        let busca = ipt_busca.value
+        let tem1 = ganhadores.includes(busca.toLowerCase())
+        let tem2 = ranking2.includes(busca.toLowerCase())
+
+        if (tem1 == true && tem2 == false){
+            msg_busca.innerHTML = `${busca} está na primeira competição!`
+        } else if (tem1 == false && tem2 == true){
+            msg_busca.innerHTML = `${busca} está na sua competição!`
+        } else if (tem1 == true && tem2 == true){
+            msg_busca.innerHTML = `${busca} está em ambas competições!`
+        } else {
+            msg_busca.innerHTML = `${busca} não está em uma competição.`
+        }
+    }
+</script>

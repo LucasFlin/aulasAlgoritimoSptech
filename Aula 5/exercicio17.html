@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 17</title>
+</head>
+<body>
+    <h1>Turista ou Estudioso</h1>
+    <p>Quantas faltas você teve?</p>
+    <input type="text" id="ipt_falta"> <br>
+    <button onclick="faltas()">Analisar frequencia</button>
+    <div id="div_img"></div>
+</body>
+</html>
+<script>
+    function faltas(){
+        let numFaltas = Number(ipt_falta.value)
+
+        if(numFaltas < 50){
+            div_img.innerHTML = '<img width=500 src="turista.png" alt="aluno novo?">'
+        }else{
+            div_img.innerHTML = '<img width=500 src="nerd.png" alt="NERD!">'
+        }
+    }
+</script>

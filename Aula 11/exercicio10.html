@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 10</title>
+</head>
+
+<body>
+    <h1>Fazes da Vida</h1>
+    <p>Quantos anos você tem?</p>
+    <input type="number" id="ipt_idade" oninput="vida()">
+    <div id="div_idade"></div>
+
+</body>
+
+</html>
+<script>
+    function vida() {
+        let idade = Number(ipt_idade.value)
+
+        div_idade.innerHTML = ''
+        for (let i = 0; i <= idade; i++) {
+            if (i <= 4) {
+                div_idade.innerHTML += `${i} anos (Primeira Infância)<br>`
+            } else if (i > 4 && i <= 6) {
+                div_idade.innerHTML += `${i} anos (Pré-Escolar)<br>`
+            } else if (i > 6 && i <= 10) {
+                div_idade.innerHTML += `${i} anos (Segunda Infância)<br>`
+            } else if (i > 10 && i <= 18) {
+                div_idade.innerHTML += `${i} anos (Adolescência)<br>`
+            } else if (i > 18 && i <= 50) {
+                div_idade.innerHTML += `${i} anos (Adulto)<br>`
+            } else if (i > 50 && i <= 100) {
+                div_idade.innerHTML += `${i} anos (Melhor Idade)<br>`
+            } else {
+                div_idade.innerHTML += `${i} anos (Matusalém)<br>`
+            }
+        }
+    }
+</script>
