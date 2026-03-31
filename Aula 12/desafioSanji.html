@@ -19,8 +19,17 @@
     <div id="div_comida"></div>
     <br>
     <br>
-    <button onclick="estoque()"> Exibit Estoque</button>
+    <button onclick="estoque()"> Exibir Estoque</button>
     <div id="div_estoque"></div>
+    <br><br>
+    <p>Alterar nome</p>
+    <input type="text" id="ipt_nome" placeholder="Nome atual"> <input type="text" id="ipt_troca" placeholder="Novo nome">
+    <button onclick="alterar()">Alterar</button>
+    <div id="div_troca"></div>
+    <br>
+    <p>Remover comida</p>
+    <input type="text" id="ipt_del"> <button onclick="deletar()">Deletar</button>
+    <div id="div_del"></div>
 </body>
 
 </html>
@@ -61,10 +70,12 @@
     }
     function estoque() {
         let estoque = []
+        div_estoque.innerHTML = ''
         for (let i = 0; i < comida.length; i++) {
             let qnt = 0
             let food = comida[i]
             let ultimo = comida.lastIndexOf(comida[i])
+            
 
             if (comida.indexOf(comida[i]) != comida.lastIndexOf(comida[i])) {
                 estoque.push(comida[i])
@@ -80,6 +91,38 @@
                 let quantidade = qnt == 0 ? '(1 unidade)' : `(${qnt} unidades)`
                 div_estoque.innerHTML += `- ${food} ${quantidade}<br>`
             }
+        }
+    }
+    function alterar(){
+        let nomeAntigo = ipt_nome.value
+        let nomeNovo = ipt_troca.value
+
+        if(comida.includes(nomeAntigo)){
+            for (let i = 0; i <= comida.length; i++){
+                if(comida[i] == nomeAntigo){
+                    comida[i] = nomeNovo
+                }
+            }
+            div_troca.innerHTML = `A comida '${nomeAntigo}' foi alterada para '${nomeNovo}'`
+
+        } else {
+            div_troca.innerHTML = `A comida '${nomeAntigo}' não foi encontrada no estoque`
+        }
+    }
+    function deletar(){
+        let del = ipt_del.value
+
+        if(comida.includes(del)){
+            for (let i = 0; i <= comida.length; i++){
+                if(comida[i] == del){
+                    comida.splice(i, 1)
+                    i--
+                }
+            }
+            div_del.innerHTML = `A comida '${del}' foi removida do estoque`
+
+        } else {
+            div_del.innerHTML = `A comida '${del}' não foi encontrada no estoque`
         }
     }
 </script>
