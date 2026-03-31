@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invasão de Impel Down</title>
+</head>
+
+<body>
+    <h1>Desafio One Piece - Invasão de Impel Down</h1>
+
+    <p>Quantas batalhas acontecerão?</p>
+    <input type="text" id="ipt_batalhas">
+    <p>Quantos marinheiros estarão em cada batalha?</p>
+    <input type="text" id="ipt_marinha">
+    <p>E quantas carnes estarão à disposição?</p>
+    <input type="text" id="ipt_carne">
+    <br>
+    <br>
+    <button onclick="simular()">Simular luta</button>
+    <h3 id="txt_msg"></h3>
+</body>
+
+</html>
+<script>
+    function simular() {
+        let batalhas = Number(ipt_batalhas.value)
+        let marinha = Number(ipt_marinha.value)
+        let carne = Number(ipt_carne.value)
+        let energia = 100
+        let marinhaDerrotados = 0
+
+        for (let i = 1; i <= batalhas; i++) {
+            if (energia > 0) {
+                energia -= 10
+                for (let i = 1; i <= marinha; i++) {
+                    if (energia < 5 && carne > 0) {
+                        energia += 100
+                        carne--
+                    }
+                    if (energia > 0) {
+                        energia -= 5
+                        marinhaDerrotados++
+                    }
+                }
+            }
+        }
+        if (energia > 0) {
+            txt_msg.innerHTML = `- Resultado: Luffy saiu vitorioso!<br>
+                                - Quantidade de carnes restantes: ${carne}<br>
+                                - Quantidade de marinheiros derrotados: ${marinhaDerrotados}<br>
+                                - Energia restante ao final das batalhas: ${energia}<br>`
+        } else {
+            txt_msg.innerHTML = `- Resultado: Luffy foi derrotado...<br>
+                                - Quantidade de carnes restantes: ${carne}<br>
+                                - Quantidade de marinheiros derrotados: ${marinhaDerrotados}<br>
+                                - Energia restante ao final das batalhas: ${energia}<br>`
+        }
+    }
+</script>
