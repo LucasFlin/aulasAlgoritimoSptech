@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Palíndromo</title>
+</head>
+
+<body>
+    <h1>Palíndromo</h1>
+    <p>Digite uma palavra</p>
+    <input type="text" id="ipt_palavra">
+    <br>
+    <button onclick="validar()">Validar Palindromo</button>
+    <div id="div_validar"></div>
+</body>
+
+</html>
+<script>
+    /*Não é permitido usar métodos prontos como:
+    filter, map, reduce, includes, indexOf, lastIndexOf*/
+    function validar() {
+        let palindromo = ipt_palavra.value.replaceAll(' ', '').toLowerCase()
+        let omordnilap = ''
+        let invertido = []
+        let p = palindromo.length - 1
+        let txt = ipt_palavra.value
+        let txt_invert = ''
+        let j = txt.length - 1
+
+        for (let i = 0; i < palindromo.length; i++) {
+            while (p >= 0) {
+                invertido[i] = palindromo[p]
+                p--
+                break
+            }
+            omordnilap += invertido[i]
+            console.log(omordnilap)
+        }
+        if (omordnilap == palindromo){
+            div_validar.innerHTML = `${txt} é um palindromo! <br>`
+        }
+        else{
+            div_validar.innerHTML = `${txt} não é um palindromo... <br>`
+        }
+
+        for (let i = 0; i < txt.length; i++) {
+            let invertido = []
+            while (j >= 0) {
+                invertido[i] = txt[j]
+                break
+            }
+            j--
+            txt_invert += invertido[i]
+        }
+        div_validar.innerHTML += `Versão invertida: ${txt_invert}`
+    }
+</script>

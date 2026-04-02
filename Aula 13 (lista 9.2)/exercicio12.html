@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inverter texto</title>
+</head>
+<body>
+    <h1>Inverter texto</h1>
+    <p>Digite o texto à ser invertido:</p>
+    <input type="text" id="ipt_txt"><br>
+    <button onclick="inverter()">Inverter</button>
+    <div id="div_invertido"></div>
+</body>
+</html>
+<script>
+    /*Não é permitido usar métodos prontos como:
+    filter, map, reduce, includes, indexOf, lastIndexOf*/
+
+    function inverter(){
+        let txt = ipt_txt.value
+        let invertido = []
+        let txt_invert = ''
+        let j = txt.length-1
+
+        for(let i = 0; i < txt.length; i++){
+            while (j >= 0){
+                invertido[i] = txt[j]
+            break
+            }
+            j--
+            txt_invert += invertido[i]
+        }
+        div_invertido.innerHTML = `invertido: ${txt_invert}`
+    }
+</script>

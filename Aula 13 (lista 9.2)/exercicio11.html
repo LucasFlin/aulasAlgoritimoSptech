@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Duplicatas</title>
+</head>
+
+<body>
+    <h1>Encontrar elementos duplicados</h1>
+    <input type="text" id="ipt_elemento">
+    <br><button onclick="adicionar()">Adicionar elemento</button> <button onclick="exibir()">Exibir Duplicatas</button>
+    <button onclick="remover()">Remover Duplicatas</button>
+    <div id="div_vetor"></div>
+</body>
+
+</html>
+<script>
+    /*Não é permitido usar métodos prontos como:
+    filter, map, reduce, includes, indexOf, lastIndexOf*/
+
+    let lista = []
+
+    function adicionar() {
+        lista.push(ipt_elemento.value)
+        div_vetor.innerHTML = 'Lista: '
+        for (let i = 0; i < lista.length; i++) {
+            div_vetor.innerHTML += `<br> - ${lista[i]}`
+        }
+    }
+    function exibir() {
+        let reserva = lista
+        let copias = []
+        div_vetor.innerHTML = 'Duplicadas: '
+        for (let i = 0; i < lista.length; i++) {
+            let contador = 0
+            for (let j = 0; j < lista.length; j++) {
+                if (reserva[j] == lista[i]) {
+                    contador++
+                }
+                if (contador == 2) {
+                    copias.push(lista[i])
+                    break
+                }
+            }
+
+        } for (let i = 0; i < copias.length; i++) {
+            for (let j = 0; j < copias.length; j++) {
+                console.log(copias)
+                if (copias[j] == copias[i]) {
+                    copias.splice(j, 1)
+                    console.log(`Copia ${copias[j]} removida, ${j} = ${copias[j]} e ${i} atual = ${copias[i]}`)
+                    console.log(j)
+
+                }
+            }
+            if (copias[i] != undefined) {
+                div_vetor.innerHTML += `<br> - ${copias[i]}`
+            }
+        }
+    }
+
+
+    function remover() {
+        let dup = []
+        div_vetor.innerHTML = 'Lista: '
+        for (let i = 0; i < lista.length; i++) {
+            let contador = 0
+            for (let j = 0; j < lista.length; j++) {
+                if (lista[j] == lista[i] && contador < 1) {
+                    console.log(lista)
+                    contador++
+                }else{
+                    lista.splice(j, 1)
+                }
+            }
+            if (lista[i] != undefined) {
+                div_vetor.innerHTML += `<br> - ${lista[i]}`
+            }
+        }
+        for (let i = 0; i < dup.length; i++){
+            
+        }
+    }
+</script>
