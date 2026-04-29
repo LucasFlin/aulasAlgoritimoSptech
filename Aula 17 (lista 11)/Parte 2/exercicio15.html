@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 15</title>
+</head>
+<body>
+    <p>Números páres: <span id="pares"></span></p>
+    <p>Números Ímpares: <span id="impares"></span></p>
+    <button onclick="numero()">Sortear número</button>
+    <div id="div_numero"></div>
+</body>
+</html>
+<script>
+    let contaPar = 0
+    let contaImpar = 0
+    pares.innerHTML = contaPar
+    impares.innerHTML = contaImpar
+
+    function numero(){
+        let n = (Math.random()*(30-9)+9).toFixed(0)
+        div_numero.innerHTML = n*(-1)
+
+        if (n%2 == 0){
+            contaPar++
+        } else {
+            contaImpar++
+        }
+        pares.innerHTML = contaPar
+        impares.innerHTML = contaImpar
+    }
+</script>

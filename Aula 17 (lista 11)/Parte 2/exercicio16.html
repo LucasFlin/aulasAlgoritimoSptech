@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 16</title>
+</head>
+<body>
+    <p>Nome <input type="text" id="ipt_nome"></p>
+    <p>Numero da sorte: <input type="text" id="ipt_num"></p>
+    <button onclick="sortear()">Sortear</button>
+    <div id="div_msg"></div>
+</body>
+</html>
+<script>
+    let contador = 0
+
+    function sortear(){
+        let sorte = ipt_num.value
+        if (sorte > 10 || sorte < 1){
+            alert("Digite um número entre 1 e 10")
+            ipt_num.innerHTML = ''
+        } else {
+            contador++
+        }
+
+        let sorteado = (Math.random()*(10-1)+1).toFixed(0)
+
+        if (sorteado == sorte){
+            div_msg.innerHTML = `Parabéns, ${ipt_nome.value} você foi sorteado(a) após ${contador} sorteios!`
+        }
+    }
+</script>

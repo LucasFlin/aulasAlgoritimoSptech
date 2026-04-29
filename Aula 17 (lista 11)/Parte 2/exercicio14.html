@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 14</title>
+</head>
+<body>
+    <button onclick="faseLua()">Ver lua</button>
+    <div id="div_msg"></div>
+</body>
+</html>
+<script>
+    function faseLua(){
+        let lua = (Math.random()*(31-1)+1).toFixed(0)
+
+            div_msg.innerHTML = `Dia: ${lua}`
+        
+        if (lua <= 7) {
+            div_msg.innerHTML += `<br>Lua nova: 🌑`
+        } else if (lua <= 16 ) {
+            div_msg.innerHTML += `<br>Lua cheia: 🌕`
+        } else if (lua <= 22) {
+            div_msg.innerHTML += `<br>Lua minguante: 🌒`
+        } else {
+            div_msg.innerHTML += `<br>Lua crescente: 🌘`
+        }
+    }
+</script>

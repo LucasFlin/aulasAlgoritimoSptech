@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 12</title>
+</head>
+
+<body>
+    <h1>Avaliação de atendente</h1>
+    <button onclick="avaliar()">Avaliar</button>
+    <div id="div_avaliacao"></div>
+</body>
+
+</html>
+<script>
+    let contador = 0
+    let soma = 0
+    let media = 0
+
+    function avaliar() {
+        let nota = (Math.random() * 5).toFixed(1)
+
+        div_avaliacao.innerHTML = `Nota recebida: ${nota} `
+
+        if (nota <= 0.5) {
+            div_avaliacao.innerHTML += `😰`
+        } else if (nota <= 1.5) {
+            div_avaliacao.innerHTML += `😥`
+        } else if (nota <= 3.5) {
+            div_avaliacao.innerHTML += `😐`
+        } else if (nota <= 4.5) {
+            div_avaliacao.innerHTML += `🙂`
+        } else {
+            div_avaliacao.innerHTML += `🤩`
+        } 
+
+        contador++
+        soma += Number(nota)
+        console.log(soma)
+        media = soma/contador
+        
+        div_avaliacao.innerHTML += `<br>Media geral: ${media}`
+
+        if (media <= 0.5) {
+            div_avaliacao.innerHTML += `😰`
+        } else if (media <= 1.5) {
+            div_avaliacao.innerHTML += `😥`
+        } else if (media <= 3.5) {
+            div_avaliacao.innerHTML += `😐`
+        } else if (media <= 4.5) {
+            div_avaliacao.innerHTML += `🙂`
+        } else {
+            div_avaliacao.innerHTML += `🤩`
+        } 
+    }
+</script>

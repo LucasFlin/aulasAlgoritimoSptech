@@ -45,7 +45,7 @@ function adicionarNoInicio(lista, elemento) {
 
 console.log('Alterar lista:')
 console.log(vetor)
-alterarLista(vetor, 1, 1)
+alterarLista(vetor, 1, 1, 7)
 function alterarLista(lista, indice, quantidade, elemento) {
     let placeholder = new Array(lista.length)
     let remover = indice + quantidade
@@ -55,9 +55,14 @@ function alterarLista(lista, indice, quantidade, elemento) {
     } else if (quantidade == 0) {
         lista[lista.length] = elemento
         return lista
-    } else {
+    } else if (elemento != undefined) {
         for (let i = indice; i <= quantidade; i++){
-        lista[i] = lista[i + quantidade]
+            if (lista[i] != elemento){
+                lista[i] = elemento
+            } else {
+                lista[i] = lista[i + quantidade]
+            }
+        
         }
         if (elemento != null && elemento != undefined){
         lista.length = lista.length-(quantidade-1)
