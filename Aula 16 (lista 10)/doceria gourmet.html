@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doceria Gourmet</title>
+</head>
+
+<style>
+    .item{
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+    }
+</style>
+
+<body>
+    <h1>Doceria Gourmet</h1>
+
+    <p>Quantos macarons serão vendidos? <input type="number" id="ipt_macaron">
+        <br>Cada um custa: <input type="number" id="ipt_p_macaron">
+    </p>
+
+    <p>Quantos brigadeiros serão vendidos? <input type="number" id="ipt_brigadeiro">
+        <br>Cada um custa: <input type="number" id="ipt_p_brigadeiro">
+    </p>
+
+    <p>Quantos cupcakes serão vendidos? <input type="number" id="ipt_cupcake">
+        <br>Cada um custa: <input type="number" id="ipt_p_cupcake">
+    </p>
+
+    <p>Quantos cheesecakes serão vendidos? <input type="number" id="ipt_cheesecake">
+        <br>Cada um custa: <input type="number" id="ipt_p_cheesecake">
+    </p>
+
+    <button onclick="vendas()">Verificar vendas</button>
+    <div id="div_vendas" class="itens"></div>
+</body>
+
+</html>
+<script>
+    function vendas() {
+        let macarons = Number(ipt_macaron.value)
+        let brigadeiros = Number(ipt_brigadeiro.value)
+        let cupcakes = Number(ipt_cupcake.value)
+        let cheesecakes = Number(ipt_cheesecake.value)
+
+        let precoMacarons = Number(ipt_p_macaron.value)
+        let precoBrigadeiros = Number(ipt_p_brigadeiro.value)
+        let precoCupcakes = Number(ipt_p_cupcake.value)
+        let precoCheesecakes = Number(ipt_p_cheesecake.value)
+
+        let vendas = 0
+        let total = 0
+        div_vendas.innerHTML = ''
+
+        if (macarons >= 0 && brigadeiros >= 0 && cupcakes >= 0 && cheesecakes >= 0 && precoMacarons >= 0 && precoBrigadeiros >= 0 && precoCupcakes >= 0 && precoCheesecakes >= 0) {
+            console.log('Tá funcionando')
+
+            for (let i = 1; i <= macarons; i++){
+                vendas++
+                total += precoMacarons
+                div_vendas.innerHTML += `<br><span class='item'>Venda ${vendas} - <img src="./macaron.png" width='50px' height='50px'> - R$${precoMacarons.toFixed(2)}</span><br>`
+            }
+            for (let i = 1; i <= brigadeiros; i++){
+                vendas++
+                total += precoBrigadeiros
+                div_vendas.innerHTML += `<br><span class='item'>Venda ${vendas} - <img src="./brigadeiro.png" width='50px' height='50px'> - R$${precoBrigadeiros.toFixed(2)}</span><br>`
+            }
+            for (let i = 1; i <= cupcakes; i++){
+                vendas++
+                total += precoCupcakes
+                div_vendas.innerHTML += `<br><span class='item'>Venda ${vendas} - <img src="./cupcake.png" width='50px' height='50px'> - R$${precoCupcakes.toFixed(2)}</span><br>`
+            }
+            for (let i = 1; i <= cheesecakes; i++){
+                vendas++
+                total += precoCheesecakes
+                div_vendas.innerHTML += `<br><span class='item'>Venda ${vendas} - <img src="./cheesecake.png" width='50px' height='50px'> - R$${precoCheesecakes.toFixed(2)}</span><br>`
+            }
+            div_vendas.innerHTML += `<br><br> Com a quantidade de ${macarons} Macarons, ${brigadeiros} Brigadeiros, ${cupcakes} Cupcakes e ${cheesecakes} Cheesecakes, a venda totalizará R$${total.toFixed(2)}`
+        } else {
+            div_vendas.innerHTML = 'Os dados não podem ser menores que 0, por favor confira os campos e tente novamente.'
+        }
+    }
+</script>

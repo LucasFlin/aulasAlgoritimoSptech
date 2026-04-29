@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Questão 4</title>
+</head>
+<body>
+   <h2>Questão 4</h2>
+   <span>Quantidade de m³ de gás consumidos:</span>
+   <input type="text" id="input_metros"> <br>
+
+   <span>Tipo de Sistema: "GN" (Gás Natural) ou "GLP" (Gás de Botijão)</span>
+   <input type="text" id="input_sistema"> <br>
+
+   <span>Valor da Taxa de Instalação Fixa em Reais: </span>
+   <input type="text" id="input_taxa"> <br>
+
+   <button onclick="calcular()">Calcular Despesa</button>
+
+   <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+/* Faça sua lógica aqui! Não altere o HTML. */
+let contador = 1
+function calcular() {
+   let metros = Number(input_metros.value)
+   let sistema = input_sistema.value
+   let taxa = Number(input_taxa.value)
+   let conta = 0
+   let proporcao = 0
+   
+   if(sistema == 'GN'){
+      sistema = 'Gás Natural'
+      if (metros <= 20){
+         conta = metros*6+taxa
+      }else{
+         conta = metros*8+taxa
+      }
+   }else{
+      sistema = 'Gás de Botijão'
+      if (metros <= 20){
+         conta = metros*5+taxa
+      }else{
+         conta = metros*7.5+taxa
+      }
+   }
+   proporcao = (taxa*100)/conta
+   div_mensagem.innerHTML += `Simulação ${contador}: <br>
+                              Sistema de ${sistema} - O valor final é R$ ${conta}. A taxa fixa de R$ ${taxa} representou ${proporcao}% do total bruto.<br><br>`
+   contador++
+}
+</script>

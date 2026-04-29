@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Numeros aleatórios</title>
+</head>
+
+<body>
+    <button onclick="rng()">Exibir numero aleatório</button>
+    <div id="div_numero"></div>
+</body>
+
+</html>
+<script>
+    function rng() {
+        Math.random() // Gera numeros entre 0 e 1
+        Math.random() * 10 // Gera numeros entre 0 e 10
+        Math.random() * (20 - 10) + 10 //Gera numeros entre 10 e 20
+                      //(max - min) + max
+
+        let numAleatorio = Math.random() * (20 - 10) + 10
+
+        div_numero.innerHTML = `${numAleatorio.toFixed(0)}`
+    }
+</script>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 5</title>
+</head>
+
+<body>
+    <h1>Jo-ken-po</h1>
+    <button onclick="jogar()">Jogar</button>
+    <div id="div_jogo"></div>
+    <div id="div_pontos"></div>
+
+</body>
+
+</html>
+<script>
+    let pont1 = 0
+    let pont2 = 0
+    function jogar() {
+        let j1 = (Math.random() * 2).toFixed(0)
+        let j2 = (Math.random() * 2).toFixed(0)
+
+        if (j1 == 0) {
+            div_jogo.innerHTML = `<img src="./pedra.png" height="200px" width="200px">`
+
+            if (j2 == 0) {
+                div_pontos.innerHTML = `<br>Empate!<br><br>
+                                        Jogador 1: ${pont1} vitória(s)<br>
+                                        Jogador 2: ${pont2} vitória(s)`
+            } else if (j2 == 1) {
+                pont2++
+                div_pontos.innerHTML = `<br>Jogador 2 venceu!<br><br>
+                                        Jogador 1: ${pont1} vitória(s)<br>
+                                        Jogador 2: ${pont2} vitória(s)`
+            }
+            else if (j2 == 2) {
+                pont1++
+                div_pontos.innerHTML = `<br>Jogador 1 venceu!<br><br>
+                                        Jogador 1: ${pont1} vitória(s)<br>
+                                        Jogador 2: ${pont2} vitória(s)`
+            }
+
+        } else if (j1 == 1) {
+            div_jogo.innerHTML = `<img src="./papel.png" height="200px" width="200px">`
+
+            if (j2 == 0) {
+                pont1++
+                div_pontos.innerHTML = `<br>Jogador 1 venceu!<br><br>
+                                        Jogador 1: ${pont1} vitória(s)<br>
+                                        Jogador 2: ${pont2} vitória(s)`
+            } else if (j2 == 1) {
+                div_pontos.innerHTML = `<br>Empate!<br><br>
+                                        Jogador 1: ${pont1} vitória(s)<br>
+                                        Jogador 2: ${pont2} vitória(s)`
+            }
+            else if (j2 == 2) {
+                pont2++
+                div_pontos.innerHTML = `<br>Jogador 2 venceu!<br><br>
+                                        Jogador 1: ${pont1} vitória(s)<br>
+                                        Jogador 2: ${pont2} vitória(s)`
+            }
+
+        } else if (j1 == 2) {
+            div_jogo.innerHTML = `<img src="./tesoura.png" height="200px" width="200px">`
+
+            if (j2 == 0) {
+                pont2++
+                div_pontos.innerHTML = `<br>Jogador 2 venceu!<br><br>
+                                        Jogador 1: ${pont1} vitória(s)<br>
+                                        Jogador 2: ${pont2} vitória(s)`
+            } else if (j2 == 1) {
+                pont1++
+                div_pontos.innerHTML = `<br>Jogador 1 venceu!<br><br>
+                                        Jogador 1: ${pont1} vitória(s)<br>
+                                        Jogador 2: ${pont2} vitória(s)`
+            }
+            else if (j2 == 2) {
+                div_pontos.innerHTML = `<br>Empate!<br><br>
+                                        Jogador 1: ${pont1} vitória(s)<br>
+                                        Jogador 2: ${pont2} vitória(s)`
+            }
+        }
+
+
+        if (j2 == 0) {
+            div_jogo.innerHTML += `<img src="./pedra.png" height="200px" width="200px">`
+        } else if (j2 == 1) {
+            div_jogo.innerHTML += `<img src="./papel.png" height="200px" width="200px">`
+        } else if (j2 == 2) {
+            div_jogo.innerHTML += `<img src="./tesoura.png" height="200px" width="200px">`
+        }
+    }
+</script>

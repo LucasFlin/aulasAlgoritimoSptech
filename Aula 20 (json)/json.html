@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    // JSON = JavaScript Object Notation
+    // pessoa{
+    //     "nome": "valor",
+    //     "idade": 24,
+    //     "notas": [10, 9],
+    //     "endereco": {
+    //          "rua"
+    //      }
+    // }
+    // Isso /\ é um Hashmap
+
+    let aluno = {
+        "nome": "Lucas",
+        "idade": 24,
+        "notas": [10,9],
+        "endereco": {
+            "rua": "Rua X",
+            "numero": 311
+        }
+    }
+
+    console.log(aluno)
+    console.log(`Meu nome é: ${aluno.nome}`)
+    console.log(`Minha idade é: ${aluno["idade"]}`)
+    console.log(`Minha primeira nota é: ${aluno.notas[0]}`)
+    console.log(`Minha rua é: ${aluno.endereco.rua}`)
+    console.log(`Meu numero é: ${aluno.endereco["numero"]}`)
+
+    // Inserindo uma nova chave no json
+    aluno["altura"] = 1.67
+
+    console.log(aluno)
+</script>

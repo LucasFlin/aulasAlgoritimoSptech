@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 7</title>
+</head>
+<body>
+    <h1>Numero Cabalístico</h1>
+    <button onclick="cabalistico()">Quero um número cabalístico!</button>
+    <div id="div_numero"></div>
+</body>
+</html>
+<script>
+    function cabalistico(){
+        let numero = (Math.random()*14+1).toFixed(0)
+
+        if (numero == 3 || numero == 4 || numero == 7 || numero == 10 || numero == 12){
+            div_numero.innerHTML = `${numero}<br>Eu S2 números cabalísticos!`
+        } else {
+            div_numero.innerHTML = `${numero}<br>Ah, me dá um número bom na próxima!`
+        }
+    }
+</script>

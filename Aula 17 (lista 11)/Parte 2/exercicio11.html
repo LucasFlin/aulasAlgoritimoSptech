@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 11</title>
+</head>
+
+<body>
+    <h1>Avaliação de atendente</h1>
+    <button onclick="avaliar()">Avaliar</button>
+    <div id="div_avaliacao"></div>
+</body>
+
+</html>
+<script>
+    function avaliar() {
+        let nota = (Math.random() * 5).toFixed(1)
+
+        div_avaliacao.innerHTML = `Nota recebida: ${nota} `
+
+        if (nota <= 0.5) {
+            div_avaliacao.innerHTML = `😰`
+        } else if (nota <= 1.5) {
+            div_avaliacao.innerHTML = `😥`
+        } else if (nota <= 3.5) {
+            div_avaliacao.innerHTML = `😐`
+        } else if (nota <= 4.5) {
+            div_avaliacao.innerHTML = `🙂`
+        } else {
+            div_avaliacao.innerHTML = `🤩`
+        }
+    }
+</script>

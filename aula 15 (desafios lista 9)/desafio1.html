@@ -15,17 +15,19 @@
 </html>
 <script>
     /*Não é permitido usar métodos prontos como:
-    filter, map, reduce, includes, indexOf, lastIndexOf*/
+    filter, map, reduce, includes, indexOf, lastIndexOf
+    Desafio: não usar vetores*/
 
     function inverter(){
         let txt = ipt_txt.value
-        let invertido = ''
+        let invertido = txt
         let txt_invert = ''
         let j = txt.length-1
 
         for(let i = 0; i < txt.length; i++){
             while (j >= 0){
                 invertido.replace(invertido[i], txt[j])
+                console.log(invertido)
             j--
             }
         }

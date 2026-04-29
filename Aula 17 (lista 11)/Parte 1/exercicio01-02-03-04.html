@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 1, 2, 3 e 4</title>
+</head>
+
+<body>
+    <h1>Números Aleatórios</h1>
+
+    <h2>Sortear e arredondar:</h2>
+    <button onclick="sortear()">Sortear</button>
+    <div id="div_numero"></div>
+
+    <h2>Sortear Time</h2>
+    <button onclick="time()">Sortear Time</button>
+    <div id="div_time"></div>
+
+    <h2>D20</h2>
+    <button onclick="d20()">Jogar dado</button>
+    <div id="div_d20" style="background-color: black; border-radius: 20px; display: flex; color: white; width: 100px; height: 100px;flex-direction: column; justify-content: center; align-items: center;"></div>
+
+    <h2>Nota</h2>
+    <button onclick="nota()">Sortear nota</button>
+    <div id="div_nota"></div>
+</body>
+
+</html>
+<script>
+    function sortear() {
+        let numero = Math.random()
+        div_numero.innerHTML = numero + `<br>`
+        if (numero >= 0.5) {
+            div_numero.innerHTML += `<br>Eu arredondaria para 1`
+        } else { div_numero.innerHTML += `<br>Eu arredondaria para 0` }
+    }
+
+    function time() {
+        let idTime = (Math.random() * 3).toFixed(0)
+
+        if (idTime == 0) {
+            div_time.innerHTML = `<img src="./sp.png" height="150px">`
+        } else if (idTime == 1) {
+            div_time.innerHTML = `<img src="./flamengo.png" height="150px">`
+        } else if (idTime == 2) {
+            div_time.innerHTML = `<img src="./vasco.png" height="150px">`
+        } else {
+            div_time.innerHTML = `<img src="./curintia.png" height="150px">`
+        }
+    }
+    function d20(){
+        let dado = (Math.random() * 20).toFixed(0)
+        div_d20.innerHTML = dado
+    }
+    function nota(){
+        let numNota = (Math.random()*10).toFixed(1)
+        div_nota.innerHTML = numNota
+    }
+</script>

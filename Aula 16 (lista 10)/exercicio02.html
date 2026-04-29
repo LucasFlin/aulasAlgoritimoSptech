@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 2</title>
+</head>
+<body>
+    <h1>Catálogo de Filmes</h1>
+    <p>Cadastre TODOS os filmes que você já viu (um por vez): <input type="text" id="ipt_filme"></p>
+    <button onclick="registrar()">Registrar</button>
+    <div id="div_contagem"></div>
+    <br>
+    <button onclick="listar()">Listar Filmes</button>
+    <br><br>
+    <h3>Selecionar por intervalo:</h3>
+    <p>De: <input type="number" id="ipt_de">, até: <input type="text" id="ipt_ate"></p>
+    <button onclick="filtrar()">Filtrar Filmes</button>
+    <div id="div_lista"></div>
+    
+</body>
+</html>
+<script>
+    let lista = []
+    let contador = 0
+    function registrar(){
+        contador++
+        lista.push(ipt_filme.value)
+        div_contagem.innerHTML = `Você já assistiu ${contador} filmes`
+    }
+    function listar(){
+        div_lista.innerHTML = ''
+        for (let i = 0; i < lista.length; i++){
+            div_lista.innerHTML += `<br>- ${lista[i]}`
+        }
+    }
+    function filtrar(){
+        let inicio = Number(ipt_de.value)
+        let fim = Number(ipt_ate.value)
+
+        div_lista.innerHTML = ''
+        for (let i = fim-1; i >= inicio-1; i--){
+            if (i > (lista.length-1)){
+                alert(`Sua lista tem menos que ${fim} filmes.`)
+                break
+            }
+            else {
+                div_lista.innerHTML += `<br>- ${lista[i]}`
+            }
+        }
+    }
+</script>

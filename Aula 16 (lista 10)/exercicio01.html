@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 1</title>
+</head>
+<body>
+    <h1>Caixa de Músicas</h1>
+    <p>Digite uma música: <input type="text" id="ipt_musica"></p>
+    <button onclick="cadastrar()">Cadastrar</button>
+    <br>
+    <button onclick="exibir()">Exibir</button>
+    <br>
+    <h3>Exibir por intervalo: </h3>
+    <p>De: <input type="number" id="ipt_de"> Até: <input type="text" id="ipt_ate"></p>
+    <button onclick="filtrar()">Filtrar</button>
+    <div id="div_musica"></div>
+
+</body>
+</html>
+<script>
+    let lista = []
+    function cadastrar(){
+        lista.push(ipt_musica.value)
+    }
+
+    function exibir(){
+        div_musica.innerHTML = ''
+        for (let i = 0; i < lista.length; i++){
+            div_musica.innerHTML += `<br>- ${lista[i]}`
+        }
+    }
+    function filtrar(){
+        let inicio = Number(ipt_de.value)
+        let fim = Number(ipt_ate.value)
+
+        div_musica.innerHTML = ''
+        for (let i = inicio-1; i <= fim-1; i++){
+            if (lista.length <= i){
+                alert(`A lista não chega até ${fim}, mostrando tudo de ${inicio} até o final da lista`)
+                break
+            }
+            else{
+                div_musica.innerHTML += `<br>- ${lista[i]}`
+            }
+
+        }
+    }
+</script>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 3</title>
+</head>
+
+<body>
+    <h1>Registro de Produtos</h1>
+    <p>Insira um produto e o preço dele:</p>
+    <span><input type="text" id="ipt_produto"> - R$<input type="text" id="ipt_preco"></span>
+    <button onclick="cadastrar()">Cadastrar</button> <button onclick="estoque()">Atualizar Estoque</button>
+    <p>Preços <select name="preço" id="slct_preco">
+            <option value="acima">acima</option>
+            <option value="abaixo">abaixo</option>
+        </select> de: <input type="text" id="ipt_valor"></p> <button onclick="filtro()">Filtrar produto</button>
+    <div id="div_msg"></div>
+</body>
+
+</html>
+<script>
+    let prod = []
+    let prec = []
+    let contador = 0
+    function cadastrar() {
+        let produto = ipt_produto.value
+        let preco = Number(ipt_preco.value)
+
+        console.log(produto)
+        console.log(preco)
+
+        if (produto.length >= 3 && preco >= 0) {
+            prod.push(produto)
+            prec.push(preco)
+            contador++
+            console.log(prod + preco)
+        }
+        else if (produto.length < 3 || preco < 0) {
+            if (produto.length < 3) {
+                alert('Nome do produto muito curto.')
+                console.log('erro 1')
+            } else if (preco < 0) {
+                alert('O preço não pode ser negativo.')
+                console.log('erro 2')
+            }
+            else {
+                alert('Algo deu errado...')
+                console.log('erro 3')
+            }
+
+        } else { console.log('erro 4') }
+    }
+
+    function estoque() {
+        let preco = 0
+
+        div_msg.innerHTML = `Você tem ${contador} produtos cadastrados no estoque`
+
+        for (let i = 0; i < prod.length; i++) {
+            div_msg.innerHTML += `<br>${i + 1}. ${prod[i]} - R$${prec[i].toFixed(2)}`
+            preco += Number(prec[1])
+        }
+        div_msg.innerHTML += `<br><br>Seu estoque vale R$${preco.toFixed(2)}`
+    }
+
+    function filtro() {
+        let valor = Number(ipt_valor.value)
+        let filtro = slct_preco.value
+        let conta = 1
+
+        div_msg.innerHTML = ''
+        if (filtro == 'acima') {
+            for (let i = prec.length; i > 0; i--) {
+                if (prec[i] > valor) {
+                    div_msg.innerHTML += `<br>${conta}. ${prod[i]} - R$${prec[i].toFixed(2)}`
+                    conta++
+                }
+            }
+        } else if (filtro == 'abaixo') {
+            for (let i = 0; i < prec.length; i++) {
+                if (prec[i] <= valor) {
+                    div_msg.innerHTML += `<br>${conta}. ${prod[i]} - R$${prec[i].toFixed(2)}`
+                    conta++
+                }
+            }
+        }
+    }
+</script>
