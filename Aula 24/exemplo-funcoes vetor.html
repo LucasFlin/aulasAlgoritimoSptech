@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="div_msg"></div>
+</body>
+
+</html>
+<script>
+    let numeros = [12, 4, 13, 5, 100, 7]
+
+    //criando um vetor no vetor
+    let numeros2 = [[1, 2, 3], [4, 5, 6]]
+
+    //variavel q n varia
+    const n = 10
+
+    // let exibir = (valor, indice, vetor) =>{
+    //     console.log(indice, valor, vetor)
+    // }
+
+    //Executa uma função em cada valor do vetor
+    // numeros.forEach(exibir)
+
+    // criando uma função na função
+    // numeros.forEach((valor, indice) => {
+    //     if (valor % 2 == 0) {
+    //         console.log(indice, valor)
+    //     }
+    // })
+
+    // percorrendo o vetor no vetor com a funçao na função
+    // numeros.forEach((valor, indice) => {
+    //     numeros.forEach((valor2, indice2) => {
+    //         if (valor2 % 2 == 0) {
+    //             console.log(indice2, valor2)
+    //         }
+    //     })
+    // })
+
+    //filtra o array e retorna true ou false
+    // numeros.filter((valor) =>{
+    //     return valor % 2 == 0
+    // }).forEach(valor =>{
+    //     console.log(valor)
+    // })
+
+    // pega um vetor, executa uma função, e retorna outro vetor transformado depois
+    // let parOuImpar = numeros.map((valor) =>{
+    //     if (valor%2==0){
+    //         return `<p>Par</p>`
+    //     }else{
+    //         return `<p>Impar</p>`
+    //     }
+    // })
+
+    // parOuImpar.forEach(valor =>{
+    //     div_msg.innerHTML += valor
+    // })
+
+    //Vai somando e andando no vetor (sla n entendi), valor inicial
+    let somar = numeros.reduce((acumulado, atual) =>{
+        return acumulado + atual
+    },100)
+    console.log (somar)
+</script>

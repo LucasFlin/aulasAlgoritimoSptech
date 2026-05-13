@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    // Async = Execução assíncrona
+
+    console.log('Antes do Timeout')
+
+    //promete que um dia vai ser executada a função
+    let consulta = new Promise((resolve, regect) => {
+        setTimeout(() => {
+            // resolve('5 segundos depois')
+            regect(new Error('Não foi possivel cumprir a promessa'))
+        }, 5000)
+    })
+
+    //Executa quando a promessa for cumprida/quando ela não é
+    consulta.then(valor =>{
+        console.log("caiu no then")
+        console.log(valor)
+    }).catch(erro => {
+        console.log("caiu no catch")
+        console.error(erro)
+    })
+
+    console.log(consulta)
+
+    console.log('Dps do Timeout')
+
+    //Mesma coisa de usar uma função q só retorna uma coisa
+    fetch("https://viacep.com.br/ws/01001000/json/").then(resposta => resposta.json())
+    .then(json => console.log(json))
+    .catch(error => console.error(error))
+
+    //Função assincrona (a função vai rodando aparte, deixando o código seguir enquanto ela roda)
+    async function viaCep(){
+        //await é tipo o then, faz a função esperar algo completar
+        let resposta = await fetch("https://viacep.com.br/ws/01001000/json/")
+        let json = await resposta.json
+        console.log(json)
+    }

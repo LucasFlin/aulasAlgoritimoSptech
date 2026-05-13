@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio</title>
+</head>
+
+<body>
+    <h1>Gerenciador de Playlist Musical</h1>
+    <p>Nome da música: <input type="text" id="ipt_nome"></p>
+    <p>Nome da banda: <input type="text" id="ipt_banda"></p>
+    <p>Duração (min.seg): <input type="text" id="ipt_tempo"></p>
+    <p>Ano de lançamento: <input type="text" id="ipt_ano"></p>
+    <p>Notas (separe por ","): <input type="text" id="ipt_nota"></p>
+    <p>Integrantes da banda (separe por ","): <input type="text" id="ipt_integrantes"></p>
+    <button onclick="adicionarMusica()">Adicionar música</button> <button onclick="listaMusicas()">Listar
+        Musicas</button> <button onclick="removerMusica()">Remover música</button> <button
+        onclick="mediaAvaliacoes()">Média das avaliações</button> <button onclick="atualizarAnoLancamento()">Atualizar o
+        ano de lançamento</button> <button onclick="buscarBandaPorIntegrante()">Buscar banda por integrante</button>
+    <div id="div_msg"></div>
+</body>
+
+</html>
+<script>
+    let playlist = []
+    function adicionarMusica() {
+        let tituloI = ipt_nome.value
+        let bandaI = ipt_banda.value
+        let duracaoI = Number(ipt_tempo.value)
+        let anoI = Number(ipt_ano.value)
+        let notasI = separar(ipt_nota.value)
+        notasI = transformaEmNumero(notasI)
+        let membrosI = separar(ipt_integrantes.value)
+        
+        let repete = false
+        let nInvalido = false
+
+        if (ipt_nome.value == '' || ipt_nome.value == '' || ipt_banda.value == '' || ipt_tempo.value == '') {
+            div_msg.innerHTML = "Por favor, preencha todos os campos"
+            return
+        } else if (ipt_nota.value == '' || ipt_integrantes.value == '') {
+            div_msg.innerHTML = "Informe ao menos uma avaliação e um integrante."
+            return
+        }
+        notasI.forEach((nota) => {
+            if (nota > 5 || nota < 1) {
+                nInvalido = true
+            }
+        })
+
+        playlist.forEach((musica) => {
+            if (musica.nome == tituloI) {
+                repete = true
+            }
+        })
+
+        if (repete == true) {
+            div_msg.innerHTML = "Já existe uma música com este título."
+            return
+        }
+        if (nInvalido == true) {
+            div_msg.innerHTML = "Todas as avaliações devem ser números entre 1 e 5."
+            return
+        }
+
+        let placeholder = {
+            "nome": tituloI,
+            "banda": bandaI,
+            "duracao": duracaoI,
+            "anoLancamento": anoI,
+            "avaliacoes": notasI,
+            "integrantes": membrosI
+        }
+        console.log(placeholder.avaliacoes)
+        playlist.push(placeholder)
+    }
+
+    function listaMusicas() {
+        if(playlist == ''){
+            div_msg.innerHTML = `<p>Nenhuma música cadastrada.</p>`
+            return
+        }
+
+        div_msg.innerHTML = ''
+
+        for (let i = 0; i < playlist.length; i++) {
+            let media = 0
+            let notas = 0
+            let qnt = 0
+            console.log(playlist[i].avaliacoes)
+            console.log(playlist[i].avaliacoes.length)
+            for (let j = 0; j < playlist[i].avaliacoes.length; j++) {
+                notas += playlist[i].avaliacoes[j]
+                qnt++
+            }
+            media = notas / qnt
+            div_msg.innerHTML += `<br> Nome: ${playlist[i].nome} | Banda: ${playlist[i].banda} | Duração da música: ${playlist[i].duracao}min | Lançada em: ${playlist[i].anoLancamento} | Nota média: ${media.toFixed(2)} | Integrantes da banda: ${playlist[i].integrantes} <br>`
+        }
+    }
+    
+    function removerMusica() {
+        let nome = ipt_nome.value
+        let existe = false
+
+        if (ipt_nome.value == '') {
+            div_msg.innerHTML = "Informe o título para remover."
+            return
+        }
+        playlist.forEach(musica => {
+            if(musica.nome == true){
+                existe = true
+            }            
+        });
+        if(existe == false){
+            div_msg.innerHTML = "Música não encontrada para remoção."
+            return
+        }
+
+        for (let i = 0; i < playlist.length; i++) {
+            if (playlist[i].nome == nome)
+                playlist.splice(i, 1)
+        }
+    }
+
+    function atualizarAnoLancamento() {
+        let nome = ipt_nome.value
+        let novoAno = Number(ipt_ano.value)
+        let existe = false
+
+        if (ipt_nome.value == '' || ipt_ano.value == '') {
+            div_msg.innerHTML = "Informe o título e o novo ano."
+            return
+        }
+        playlist.forEach(musica => {
+            if(musica.nome == true){
+                existe = true
+            }            
+        });
+        if(existe == false){
+            div_msg.innerHTML = "Música não encontrada para atualização."
+            return
+        }
+
+        for (let i = 0; i < playlist.length; i++) {
+            if (playlist[i].nome == nome) {
+                playlist[i].anoLancamento = novoAno
+            }
+        }
+    }
+
+    function mediaAvaliacoes() {
+        let nome = ipt_nome.value
+        div_msg.innerHTML = ''
+
+        let existe = false
+
+        if (ipt_nome.value == '') {
+            div_msg.innerHTML = "Informe o título para calcular a média."
+            return
+        }
+        playlist.forEach(musica => {
+            if(musica.nome == true){
+                existe = true
+            }            
+        });
+        if(existe == false){
+            div_msg.innerHTML = "Música não encontrada para calcular média."
+            return
+        }
+
+        for (let i = 0; i < playlist.length; i++) {
+            if (playlist[i].nome == nome) {
+                let media = 0
+                let notas = 0
+                let qnt = 0
+
+                for (let j = 0; j < playlist[i].avaliacoes.length; j++) {
+                    notas += playlist[i].avaliacoes[j]
+                    qnt++
+                }
+                media = notas / qnt
+                div_msg.innerHTML += `Nota média de ${nome}: ${media.toFixed(2)}`
+                return
+            }
+        }
+    }
+
+    function buscarBandaPorIntegrante() {
+        let nome = ipt_integrantes.value
+        let existe = false
+
+        if (nome == '') {
+            div_msg.innerHTML = "Informe o integrante para buscar a banda."
+            return
+        }
+        playlist.forEach(musica => {
+            if(musica.integrantes.includes(nome) == true){
+                existe = true
+                return
+            }            
+        });
+        if(existe == false){
+            div_msg.innerHTML = "Integrante não encontrado nas bandas cadastradas."
+            return
+        }
+
+        for (let i = 0; i < playlist.length; i++) {
+            if (playlist.integrantes.includes(nome) == true) {
+                div_msg.innerHTML = `${nome} pertence à banda ${playlist[i].banda}!`
+                return
+            }
+        }
+    }
+
+    function separar(txt) {
+        let texto = txt
+        let textoCortado = txt.split(",")
+
+        for (let i = 0; i < textoCortado.length; i++) {
+            textoCortado[i] = textoCortado[i].trim()
+        }
+
+        return textoCortado
+    }
+
+    function transformaEmNumero(lista) {
+        for (let i = 0; i < lista.length; i++) {
+            lista[i] = Number(lista[i])
+        }
+        return lista
+    }
+</script>
