@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="msg"></p>
+</body>
+</html>
+<script>
+    let cliente = {
+        "nome":"Sophie",
+        "idade":27,
+        "endereco":{
+            "rua":"Rua da alegria",
+            "numero":"666",
+            "cidade":"Ferraz de Vasconcelos"
+        }
+    }
+
+    msg.innerHTML = `Nome: ${cliente.nome} | Idade: ${cliente.idade} | Rua: ${cliente.endereco.rua} | Numero: ${cliente.endereco.numero} | Cidade: ${cliente.endereco.cidade}` 
+</script>

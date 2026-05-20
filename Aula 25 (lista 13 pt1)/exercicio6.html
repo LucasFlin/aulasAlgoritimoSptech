@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 6</title>
+</head>
+<body>
+    <p id="media"></p>
+    <p id="maiorN"></p>
+    <p id="menorN"></p>
+</body>
+</html>
+<script>
+    let turma = [
+        {
+            "nome": "Sophie",
+            "nota": 0.2
+        },
+        {
+            "nome":"Lucas",
+            "nota":0.1
+        },
+        {
+            "nome":"Mariana",
+            "nota":9
+        },
+        {
+            "nome":"Matheus",
+            "nota":8
+        },
+        {
+            "nome":"Fil Mahar",
+            "nota":6
+        }
+    ]
+    let maior = 0
+    let menor = 0
+    let total = 0
+    let contador = 0
+
+    turma.forEach(aluno => {
+        if(aluno.nota > maior){
+            maior = aluno.nota
+            maiorN.innerHTML = `Nome: ${aluno.nome} | Nota: ${aluno.nota}`
+        }
+        if(aluno.nota < menor){
+            menor = aluno.nota
+            menorN.innerHTML = `Nome: ${aluno.nome} | Nota: ${aluno.nota}`
+        }
+        total += Number(aluno.nota)
+        contador++
+    });
+
+    media.innerHTML = `Média: ${total/contador}`
+</script>

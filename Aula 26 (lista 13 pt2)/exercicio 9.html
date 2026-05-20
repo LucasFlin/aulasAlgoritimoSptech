@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 9</title>
+</head>
+<body>
+    <input type="text" id="day">
+    <button onclick="traduzir(day.value)">Exibir Tradução</button>
+    <p id="traducao"></p>
+</body>
+</html>
+<script>
+    const dias  = {
+        "monday":"Segunda-feira",
+        "tuesday":"Terça-feira",
+        "wednesday":"Quarta-feira",
+        "thursday":"Quinta-feira",
+        "friday":"Sexta-feira",
+        "saturday":"Sábado",
+        "sunday":"Domingo",
+    }
+
+    function traduzir(dia){
+        console.log(dia)
+        if(dia in dias){
+            traducao.innerHTML = dias[dia]
+        }else{
+            traducao.innerHTML = 'Dia não encontrado'
+        }
+    }
+</script>

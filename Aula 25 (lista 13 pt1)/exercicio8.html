@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 8</title>
+</head>
+<body>
+    <p id="en"></p>
+    <p id="pr"></p>
+    <p id="so"></p>
+</body>
+</html>
+<script>
+    let cardapio = [
+        {
+            "nome":"Brigadeiro",
+            "tipo":"sobremesa",
+            "preco":1
+        },
+        {
+            "nome":"Bala de Coco",
+            "tipo":"sobremesa",
+            "preco":1
+        },
+        {
+            "nome":"Risoto",
+            "tipo":"principal",
+            "preco":20
+        },
+        {
+            "nome":"Sunomono",
+            "tipo":"entrada",
+            "preco":5
+        },
+        {
+            "nome":"Torradinha",
+            "tipo":"entrada",
+            "preco":2
+        }
+    ]
+    pr.innerHTML = "Principal: <br>"
+    so.innerHTML = "Sobremesa: <br>"
+    en.innerHTML = "Entrada: <br>"
+
+    cardapio.forEach(prato => {
+        if(prato.tipo == 'principal'){
+            pr.innerHTML += `Prato: ${prato.nome} | Preço: ${prato.preco}<br>`
+        }
+        if(prato.tipo == 'entrada'){
+            en.innerHTML += `Prato: ${prato.nome} | Preço: ${prato.preco}<br>`
+        }
+        if(prato.tipo == 'sobremesa'){
+            so.innerHTML += `Prato: ${prato.nome} | Preço: ${prato.preco}<br>`
+        }
+    });
+</script>

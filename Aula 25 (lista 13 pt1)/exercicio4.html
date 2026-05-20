@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 4</title>
+</head>
+<body>
+    <input type="text" id="valor">
+    <button onclick="deposito(valor.value)">Depositar</button> <button onclick="saque(valor.value)">Sacar</button>
+    <p id="msg"></p>
+</body>
+</html>
+<script>
+    let conta = {
+        "titular":"Sophie",
+        "saldo":300000000,
+        "banco":"btg"
+    }
+
+    msg.innerHTML = `Titular: ${conta.titular}<br>
+                     Saldo: R$${conta.saldo.toFixed(2)}
+                     Banco: ${conta.banco}`
+
+    function deposito(n){
+        conta.salto += n
+        msg.innerHTML = `Titular: ${conta.titular}<br>
+                     Saldo: R$${conta.saldo.toFixed(2)}
+                     Banco: ${conta.banco}`
+    }
+
+    function saque(n){
+        conta.salto -= n
+        msg.innerHTML = `Titular: ${conta.titular}<br>
+                     Saldo: R$${conta.saldo.toFixed(2)}
+                     Banco: ${conta.banco}`
+    }
+</script>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio</title>
+</head>
+<body>
+    <p>Nome: <input type="text" id="ipt_nome"></p>
+    <p>Telefone: <input type="text" id="ipt_tel"></p>
+    <p>Email: <input type="text" id="ipt_email"></p>
+    <button onclick="add(ipt_tel.value, ipt_nome.value, ipt_email.value)">Adicionar</button> <button onclick="buscar(ipt_tel.value)">Buscar</button> <button onclick="rmv(ipt_tel.value)">Remover</button> <button onclick="listar()">Listar</button>
+    <div id="msg"></div>
+</body>
+</html>
+<script>
+    let listaTel = {}
+    function add(tel, nome, email){
+        if(tel in listaTel){
+            msg.innerHTML = 'Um contato com esse telefone já existe...'
+            return 
+        }
+        listaTel[tel]= {
+            "nome":nome, "email": email
+        }
+        msg.innerHTML = 'Contato adicionado com sucesso!'
+    }
+    function buscar(tel){
+        if(tel in listaTel){
+            msg.innerHTML = `Nome: ${listaTel[tel].nome} | Email: ${listaTel[tel].email}`
+            return
+        }
+        msg.innerHTML = 'Contato não encontrado...'
+    }
+    function rmv(tel){
+        if(tel in listaTel){
+            delete listaTel[tel]
+            msg.innerHTML = `Contato removido com sucesso!`
+            return
+        }
+        msg.innerHTML = 'Contato não encontrado...'
+    }
+    function listar(){
+        msg.innerHTML = ''
+        let chaves = Object.keys(listaTel)
+        chaves.forEach(tel => {
+            msg.innerHTML += `<br>Nome ${listaTel[tel].nome} | Email: ${listaTel[tel].email} | Tel: ${tel}`
+        });
+    }
+</script>

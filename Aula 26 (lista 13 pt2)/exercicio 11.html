@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 11</title>
+</head>
+<body>
+    <input type="text" id="ipt_ra">
+    <button onclick="busca(ipt_ra.value)">Buscar</button>
+    <p id="aluno"></p>
+</body>
+</html>
+<script>
+    const turma = {
+   "1001": { nome: "Carlos",  nota: 8.5 },
+   "1002": { nome: "Beatriz", nota: 9.0 },
+   "1003": { nome: "Sophie", nota: 10.0},
+   "1004": { nome: "Lucas", nota: 9.5}
+ };
+
+function busca(ra){
+        if(!(ra in turma)){
+            aluno.innerHTML = "Aluno não encontrado"
+        }
+        aluno.innerHTML = `Nome: ${turma[ra].nome} <br> Nota: ${turma[ra].nota}`
+    }
+</script>

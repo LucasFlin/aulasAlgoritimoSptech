@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 5</title>
+</head>
+<body>
+    <p id="msg"></p>
+</body>
+</html>
+<script>
+    let contatos = [{
+        "nome":"Lucas",
+        "telefone":"11123456789"
+    },
+    {
+        "nome":"Sophie",
+        "telefone":"11222222222"
+    },
+    {
+        "nome":"Mariana",
+        "telefone":"1134562000"
+    },
+    {
+        "nome":"Wety",
+        "telefone":"198429835"
+    }
+    ]
+
+    contatos.forEach(contato => {
+        msg.innerHTML += `Nome: ${contato.nome} | Telefone: ${contato.telefone}<br>`
+    });
+    
+</script>

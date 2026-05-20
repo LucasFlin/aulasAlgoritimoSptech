@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 12</title>
+</head>
+<body>
+    <input type="text" id="pedido"> <br>
+    <button onclick="add(pedido.value)">Adicionar</button> <button onclick="fechar()">Fechar pedido</button>
+    <div id="div_pedido">Lista de Pedidos:</div>
+</body>
+</html>
+<script>
+    const cardapio = {
+        "HAM": {"nome":"Hamburguer Clássico", "preco":25.90},
+        "ACA": {"nome":"Açaí 500ml", "preco":18.00},
+        "PET": {"nome":"Petit Gateau", "preco":12.50},
+        "STR": {"nome":"Strogonoff", "preco":6.01},
+        "SAL": {"nome":"Salada", "preco":10000.00},
+    }
+    let precoTotal = 0
+    function add(codigo){
+        if(codigo.length > 3){
+            alert("Insira um código válido (3 digitos)")
+            pedido.innerHTML = ''
+            return
+        } else if (!codigo in cardapio){
+            alert("Essa comida não existe no cardápio")
+            pedido.innerHTML = ''
+            return
+        }
+        div_pedido.innerHTML += `<br>- ${cardapio[codigo].nome}`
+        precoTotal += Number(cardapio[codigo].preco)
+    }
+
+    function fechar(){
+        div_pedido.innerHTML += `<br><br>Total: R$${precoTotal}`
+    }
+</script>

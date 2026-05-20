@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 7</title>
+</head>
+<body>
+    <input type="text" id="txt">
+    <button onclick="filtrar(txt.value)">Filtrar</button>
+    <div id="msg"></div>
+</body>
+</html>
+<script>
+    let produtos = [
+        {
+            "nome":"Açucar",
+            "categoria":"Alimentos",
+            "preco": 12
+        },
+        {
+            "nome":"Café",
+            "categoria":"Bebidas",
+            "preco": 18
+        },
+        {
+            "nome":"Notebook",
+            "categoria":"Eletronicos",
+            "preco": 51
+        },
+        {
+            "nome":"Casa",
+            "categoria":"Residência",
+            "preco": 62
+        },
+        {
+            "nome":"Hamburguer",
+            "categoria":"Alimentos",
+            "preco": 2
+        },
+        {
+            "nome":"Carro",
+            "categoria":"Veículo",
+            "preco": 58
+        }
+    ]
+
+    function filtrar(filtro){
+        msg.innerHTML = ''
+        produtos.forEach(produto => {
+            if(produto.categoria == filtro)
+            msg.innerHTML += `Produto: ${produto.nome} | Categoria: ${produto.categoria} | Preço: ${produto.preco}<br>`
+        });
+    }
+</script>
