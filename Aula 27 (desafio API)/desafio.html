@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tipos Pokémon</title>
+</head>
+<body id="corpo" style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh;">
+    <h1 id="titulo" style="width: fit-content;"> Tipos pokémon </h1>
+    <p id="selecao" style="width: fit-content;"> Selecione um tipo: </p>
+    <select id="slct_tipos" oninput="fundo(slct_tipos.value)">
+        <option value=""></option>
+        <option value="water">Água</option>
+        <option value="grass">Planta</option>
+        <option value="fire">Fogo</option>
+        <option value="ground">Terra</option>
+        <option value="steel">Aço</option>
+        <option value="dragon">Dragão</option>
+        <option value="ice">Gelo</option>
+        <option value="flying">Voador</option>
+        <option value="electric">Elétrico</option>
+        <option value="fairy">Fada</option>
+        <option value="dark">Escuro</option>
+        <option value="psychic">Psiquico</option>
+        <option value="ghost">Fantasma</option>
+        <option value="poison">Veneno</option>
+        <option value="bug">Inseto</option>
+        <option value="rock">Pedra</option>
+        <option value="normal">Normal</option>
+        <option value="fighting">Lutador</option>
+    </select>
+    <img src="" id="sprite">
+</body>
+</html>
+<script>
+    function fundo(tipo){
+        if (tipo == 'water'){
+            titulo.style.backgroundColor = 'CornflowerBlue'
+            selecao.style.backgroundColor = 'CornflowerBlue'
+            titulo.style.color = 'white'
+            selecao.style.color = 'white'
+            corpo.style.background = 'url("./agua.png") no-repeat center center / cover'
+        } else if (tipo == 'grass'){
+            titulo.style.backgroundColor = 'green'
+            selecao.style.backgroundColor = 'green'
+            titulo.style.color = 'white'
+            selecao.style.color = 'white'
+            corpo.style.background = 'url("./planta.png") no-repeat center center / cover'
+        } else if (tipo == 'fire'){
+            titulo.style.backgroundColor = 'red'
+            selecao.style.backgroundColor = 'red'
+            titulo.style.color = 'white'
+            selecao.style.color = 'white'
+            corpo.style.background = 'url("./fogo.png") no-repeat center center / cover'
+        } else if (tipo == 'ground'){
+            titulo.style.backgroundColor = 'Chocolate'
+            selecao.style.backgroundColor = 'Chocolate'
+            titulo.style.color = 'white'
+            selecao.style.color = 'white'
+            corpo.style.background = 'url("./terra.png") no-repeat center center / cover'
+        } else if (tipo == 'steel'){
+            titulo.style.backgroundColor = 'CadetBlue'
+            selecao.style.backgroundColor = 'CadetBlue'
+            titulo.style.color = 'white'
+            selecao.style.color = 'white'
+            corpo.style.background = 'url("./aco.png") no-repeat center center / cover'
+        } else if (tipo == 'dragon'){
+            titulo.style.backgroundColor = 'blue'
+            selecao.style.backgroundColor = 'blue'
+            titulo.style.color = 'white'
+            selecao.style.color = 'white'
+            corpo.style.background = 'url("./dragao.png") no-repeat center center / cover'
+        } else if (tipo == 'ice'){
+            titulo.style.backgroundColor = 'darkTurquoise'
+            selecao.style.backgroundColor = 'DarkTurquoise'
+            titulo.style.color = 'white'
+            selecao.style.color = 'white'
+            corpo.style.background = 'url("./gelo.png") no-repeat center center / cover'
+        } else if (tipo == 'flying'){
+            titulo.style.backgroundColor = 'SkyBlue'
+            selecao.style.backgroundColor = 'SkyBlue'
+            titulo.style.color = 'white'
+            selecao.style.color = 'white'
+            corpo.style.background = 'url("./voador.png") no-repeat center center / cover'
+        } else if (tipo == 'electric'){
+            titulo.style.backgroundColor = 'yellow'
+            selecao.style.backgroundColor = 'yellow'
+            titulo.style.color = 'white'
+            selecao.style.color = 'white'
+            corpo.style.background = 'url("./eletrico.png") no-repeat center center / cover'
+        } else if (tipo == 'fairy'){
+            titulo.style.backgroundColor = 'LightPink'
+            selecao.style.backgroundColor = 'LightPink'
+            titulo.style.color = 'white'
+            selecao.style.color = 'white'
+            corpo.style.background = 'url("./fada.png") no-repeat center center / cover'
+        } else if (tipo == 'dark'){
+            titulo.style.backgroundColor = 'DarkGrey'
+            selecao.style.backgroundColor = 'DarkGrey'
+            titulo.style.color = 'white'
+            selecao.style.color = 'white'
+            corpo.style.background = 'url("./dark.png") no-repeat center center / cover'
+        } else if (tipo == 'psychic'){
+            titulo.style.backgroundColor = 'IndianRed'
+            selecao.style.backgroundColor = 'IndianRed'
+            titulo.style.color = 'white'
+            selecao.style.color = 'white'
+            corpo.style.background = 'url("./psiquico.png") no-repeat center center / cover'
+        } else if (tipo == 'ghost'){
+            titulo.style.backgroundColor = 'RebeccaPurple'
+            selecao.style.backgroundColor = 'RebeccaPurple'
+            titulo.style.color = 'white'
+            selecao.style.color = 'white'
+            corpo.style.background = 'url("./fantasma.png") no-repeat center center / cover'
+        } else if (tipo == 'poison'){
+            titulo.style.backgroundColor = 'DarkViolet'
+            selecao.style.backgroundColor = 'DarkViolet'
+            titulo.style.color = 'white'
+            selecao.style.color = 'white'
+            corpo.style.background = 'url("./veneno.png") no-repeat center center / cover'
+        } else if (tipo == 'bug'){
+            titulo.style.backgroundColor = 'YellowGreen'
+            selecao.style.backgroundColor = 'YellowGreen'
+            titulo.style.color = 'white'
+            selecao.style.color = 'white'
+            corpo.style.background = 'url("./inseto.png") no-repeat center center / cover'
+        } else if (tipo == 'rock'){
+            titulo.style.backgroundColor = 'DarkKhaki'
+            selecao.style.backgroundColor = 'DarkKhaki'
+            titulo.style.color = 'white'
+            selecao.style.color = 'white'
+            corpo.style.background = 'url("./pedra.png") no-repeat center center / cover'
+        } else if (tipo == 'normal'){
+            titulo.style.backgroundColor = ''
+            selecao.style.backgroundColor = ''
+            titulo.style.color = 'black'
+            selecao.style.color = 'black'
+            corpo.style.background = 'url("./normal.png") no-repeat center center / cover'
+        } else if (tipo == 'fighting'){
+            titulo.style.backgroundColor = 'DarkRed'
+            selecao.style.backgroundColor = 'DarkRed'
+            titulo.style.color = 'white'
+            selecao.style.color = 'white'
+            corpo.style.background = 'url("./lutador.png") no-repeat center center / cover'
+        } else if (tipo == ''){
+            titulo.style.backgroundColor = ''
+            selecao.style.backgroundColor = ''
+            titulo.style.color = 'black'
+            selecao.style.color = 'black'
+            corpo.style.background = ''
+        }
+        sprite.src = sortearPokemon()
+    }
+
+    async function sortearPokemon(){
+        let sorteado = (Math.random()*(1025-1)+1).toFixed(0)
+        let i = 0
+        console.log(sorteado)
+        let pokedex = await fetch(`https://pokeapi.co/api/v2/pokemon/${sorteado}`)
+        .then(resposta => resposta.json())
+        .then(json => {
+            if(json.types[0].type.name == slct_tipos.value){
+            sprite.src = json.sprites.front_default
+            } else {
+                sortearPokemon()
+            }
+        })
+        }
+</script>
