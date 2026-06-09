@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 3</title>
+</head>
+
+<body>
+    <input type="text" id="link">
+    <button onclick="visitar(link.value)">Visitar</button><button onclick="voltar()">Voltar</button>
+    <div id="msg"></div>
+    <div id="historico"></div>
+</body>
+
+</html>
+<script>
+    let lista = []
+    function visitar(url) {
+        if (url == undefined) {
+            alert('Digite uma URL antes de visitar.')
+            return
+        }
+        msg.innerHTML = `Visitando ${url}`
+        lista.push(url)
+        historico.innerHTML = 'Histórico: '
+        for(let i = lista.length-1; i >= 0; i--){
+            historico.innerHTML += `<br>- ${lista[i]}`
+        }
+    }
+    function voltar() {
+
+        if (lista.length == 0) {
+            alert('Não há páginas no histórico.')
+            return
+        } 
+        msg.innerHTML = `Voltando para ${lista[lista.length-1]}`
+        if (lista.length == 1) {
+            alert('Você está na primeira página. não é posssivel voltar mais')
+            return
+        }
+        lista.pop()
+
+        historico.innerHTML = 'Histórico: '
+        for(let i = lista.length-1; i >= 0; i--){
+            historico.innerHTML += `<br>- ${lista[i]}`
+        }
+    }
+</script>

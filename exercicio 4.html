@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 4</title>
+</head>
+<body>
+    <div id="msg"></div>
+</body>
+</html>
+<script>
+    let matriz = [
+        [9, 1, 8],
+        [9, 7, 6],
+        [10, 1, 7]
+    ]
+
+    let soma = 0
+    let maior = 0
+
+    for(let i = 0; i < matriz.length; i++){
+        for(let j = 0; j < matriz[i].length; j++){
+            soma += Number(matriz[i][j])
+            if (matriz[i][j] > maior){
+                maior = matriz[i][j]
+            }
+        }
+    }
+    msg.innerHTML = `- Soma: ${soma}<br>- Média: ${soma/9}<br>- Maior número: ${maior}`
+</script>

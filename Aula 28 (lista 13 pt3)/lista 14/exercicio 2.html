@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercico 2</title>
+</head>
+
+<body>
+    <input type="text" id="documento">
+    <input type="number" id="paginas">
+    <button onclick="enviar(documento.value, paginas.value)">Enviar para a Impressora</button> <button
+        onclick="imprimir()">Imprimir próximo</button>
+    <div id="aviso"></div>
+    <div id="fila_atual">Fila: </div>
+    <div id="historico">Impresso: </div>
+</body>
+
+</html>
+<script>
+    let fila = []
+    function enviar(nome, pag) {
+        if (nome == '' || pag == '') {
+            alert('Escreva um nome e o número de páginas')
+            return
+        } else {
+            let placeholder = {
+                "nome": nome,
+                "paginas": pag
+            }
+            fila.push(placeholder)
+            aviso.innerHTML = `<p>Documento "${nome}" adicionado à fila (${pag} páginas).</p>`
+            fila_atual.innerHTML = 'Fila: '
+
+            fila.forEach(pessoa => {
+                fila_atual.innerHTML += `<br>- ${pessoa.nome}, ${pessoa.paginas} páginas`
+            });
+        }
+    }
+
+    function imprimir() {
+        if (fila[0] == undefined) {
+            alert('A fila está vazia')
+            return
+        } else {
+            historico.innerHTML += `<br>- ${fila[0].nome}, ${fila[0].paginas} páginas`
+            aviso.innerHTML = `<p>Imprimindo: "${fila[fila.length - 1].nome}" (${fila[fila.length - 1].paginas} páginas). Documentos restantes: ${fila.length-1}.</p>`
+            fila.shift()
+            fila_atual.innerHTML = 'Fila: '
+            console.log(fila)
+            fila.forEach(pessoa => {
+                fila_atual.innerHTML += `<br>- ${pessoa.nome}, ${pessoa.paginas} páginas`
+            });
+        }
+    }
+</script>

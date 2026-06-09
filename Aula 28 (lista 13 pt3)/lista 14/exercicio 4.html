@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 4</title>
+</head>
+
+<body>
+    <input type="text" id="txt">
+    <button onclick="escrever(txt.value)">Escrever</button> <button onclick="desfazer()">Desfazer</button> <button onclick="refazer()">Refazer</button>
+    <div id="msg"></div>
+    <div id="historico">Histórico: </div>
+</body>
+
+</html>
+<script>
+    let lista = []
+    let volta = []
+    desfeito = false
+    function escrever(texto) {
+        if (texto == undefined) {
+            alert('Digite um texto para escrever')
+            return
+        }
+        if (desfeito == true){
+            desfeito = false
+            volta = []
+        }
+        lista.push(texto)
+        atualizar()
+    }
+    function desfazer() {
+        if (lista.length == 0) {
+            alert('Nada para desfazer.')
+            return
+        } 
+        historico.innerHTML += `<br>- Ação Desfeita: ${lista[lista.length-1]}`
+        volta.push(lista[lista.length-1])
+        lista.pop()
+        desfeito = true
+        atualizar()
+    }
+
+    function refazer(){
+        if (volta.length == 0) {
+            alert('Nada para refazer.')
+            return
+        } 
+        historico.innerHTML += `<br>- Ação Refeita: ${volta[volta.length-1]}`
+        lista.push(volta[volta.length-1])
+        volta.pop()
+        atualizar()
+    }
+
+    function atualizar(){
+        msg.innerHTML = ''
+        lista.forEach(palavra => {
+            msg.innerHTML += `${palavra} `
+        });
+    }
+</script>

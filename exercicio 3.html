@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 3</title>
+</head>
+<body>
+    <div id="msg"></div>
+</body>
+</html>
+<script>
+    let agenda = [
+        ["Livre","Academia","Estudar","Livre"],
+        ["Trabalho","Estudar","Academia","Livre"],
+        ["Trabalho","Estudar","Trabalho","Livre"],
+        ["Trabalho","Academia","Trabalho","Estudar"],
+        ["Trabalho","Estudar","Estudar","Academia"],
+        ["Trabalho","Livre","Livre","Estudar"],
+        ["Livre","Livre","Estudar","Livre"]
+    ]
+
+    let qntL = 0
+    let qntT = 0
+    let qntE = 0
+    let qntA = 0
+
+    msg.innerHTML += 'Dia da Semana => Manhã | Tarde | Noite | Madrugada |'
+
+    for(let i = 0; i < agenda.length; i++){
+        msg.innerHTML += `<br>${dia(i)}`
+        for (let j = 0; j < agenda[i].length; j++){
+            msg.innerHTML += `${agenda[i][j]} | `
+
+            if(agenda[i][j] == "Livre"){
+                qntL++
+            } else if(agenda[i][j] == "Trabalho"){
+                qntT++
+            } else if(agenda[i][j] == "Estudar"){
+                qntE++
+            } else if(agenda[i][j] == "Academia"){
+                qntA++
+            }
+        }
+    }
+    msg.innerHTML += `<br><br>Quantidade de horários livres: ${qntL}`
+    if(qntT > qntE && qntT > qntA){
+        msg.innerHTML += `<br>Atividade mais comum: Trabalho`
+    } else if(qntE > qntT && qntE > qntA){
+        msg.innerHTML += `<br>Atividade mais comum: Estudar`
+    } else if(qntA > qntT && qntA > qntE){
+        msg.innerHTML += `<br>Atividade mais comum: Academia`
+    }
+
+    function dia(n){
+        if(n == 0){
+            return "Domingo => "
+        } else if(n == 1){
+            return "Segunda => "
+        } else if(n == 2){
+            return "Terça => "
+        } else if(n == 3){
+            return "Quarta => "
+        } else if(n == 4){
+            return "Quinta => "
+        } else if(n == 5){
+            return "Sexta => "
+        } else if(n == 6){
+            return "Sábado => "
+        }
+    }
+</script>
