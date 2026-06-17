@@ -341,7 +341,7 @@
         } else if (cartaOrigem.cor == 'Preto' && cartaOrigem.cor == 'Vermelho') {
           return true
         }
-      return false
+        return false
 
       } else if (cartaOrigem.valor == '2' && cartaDestino.valor == '3') {
         if (cartaOrigem.cor == 'Vermelho' && cartaDestino.cor == 'Preto') {
@@ -349,7 +349,7 @@
         } else if (cartaOrigem.cor == 'Preto' && cartaOrigem.cor == 'Vermelho') {
           return true
         }
-      return false
+        return false
 
       } else if (cartaOrigem.valor == '3' && cartaDestino.valor == '4') {
         if (cartaOrigem.cor == 'Vermelho' && cartaDestino.cor == 'Preto') {
@@ -357,7 +357,7 @@
         } else if (cartaOrigem.cor == 'Preto' && cartaOrigem.cor == 'Vermelho') {
           return true
         }
-      return false
+        return false
 
       } else if (cartaOrigem.valor == '4' && cartaDestino.valor == '5') {
         if (cartaOrigem.cor == 'Vermelho' && cartaDestino.cor == 'Preto') {
@@ -365,7 +365,7 @@
         } else if (cartaOrigem.cor == 'Preto' && cartaOrigem.cor == 'Vermelho') {
           return true
         }
-      return false
+        return false
 
       } else if (cartaOrigem.valor == '5' && cartaDestino.valor == '6') {
         if (cartaOrigem.cor == 'Vermelho' && cartaDestino.cor == 'Preto') {
@@ -373,7 +373,7 @@
         } else if (cartaOrigem.cor == 'Preto' && cartaOrigem.cor == 'Vermelho') {
           return true
         }
-      return false
+        return false
 
       } else if (cartaOrigem.valor == '6' && cartaDestino.valor == '7') {
         if (cartaOrigem.cor == 'Vermelho' && cartaDestino.cor == 'Preto') {
@@ -381,7 +381,7 @@
         } else if (cartaOrigem.cor == 'Preto' && cartaOrigem.cor == 'Vermelho') {
           return true
         }
-      return false
+        return false
 
       } else if (cartaOrigem.valor == '7' && cartaDestino.valor == '8') {
         if (cartaOrigem.cor == 'Vermelho' && cartaDestino.cor == 'Preto') {
@@ -389,7 +389,7 @@
         } else if (cartaOrigem.cor == 'Preto' && cartaOrigem.cor == 'Vermelho') {
           return true
         }
-      return false
+        return false
 
       } else if (cartaOrigem.valor == '8' && cartaDestino.valor == '9') {
         if (cartaOrigem.cor == 'Vermelho' && cartaDestino.cor == 'Preto') {
@@ -397,7 +397,7 @@
         } else if (cartaOrigem.cor == 'Preto' && cartaOrigem.cor == 'Vermelho') {
           return true
         }
-      return false
+        return false
 
       } else if (cartaOrigem.valor == '9' && cartaDestino.valor == '10') {
         if (cartaOrigem.cor == 'Vermelho' && cartaDestino.cor == 'Preto') {
@@ -405,7 +405,7 @@
         } else if (cartaOrigem.cor == 'Preto' && cartaOrigem.cor == 'Vermelho') {
           return true
         }
-      return false
+        return false
 
       } else if (cartaOrigem.valor == '10' && cartaDestino.valor == 'J') {
         if (cartaOrigem.cor == 'Vermelho' && cartaDestino.cor == 'Preto') {
@@ -413,7 +413,7 @@
         } else if (cartaOrigem.cor == 'Preto' && cartaOrigem.cor == 'Vermelho') {
           return true
         }
-      return false
+        return false
 
       } else if (cartaOrigem.valor == 'J' && cartaDestino.valor == 'Q') {
         if (cartaOrigem.cor == 'Vermelho' && cartaDestino.cor == 'Preto') {
@@ -421,7 +421,7 @@
         } else if (cartaOrigem.cor == 'Preto' && cartaOrigem.cor == 'Vermelho') {
           return true
         }
-      return false
+        return false
 
       } else if (cartaOrigem.valor == 'Q' && cartaDestino.valor == 'K') {
         if (cartaOrigem.cor == 'Vermelho' && cartaDestino.cor == 'Preto') {
@@ -429,10 +429,10 @@
         } else if (cartaOrigem.cor == 'Preto' && cartaOrigem.cor == 'Vermelho') {
           return true
         }
-      return false
+        return false
 
       } else {
-      return false
+        return false
       }
     }
 
@@ -457,7 +457,71 @@
     // - pilhaFinal -> pilha final de destino
     // =====================================================
     function validarMovimentoFinal(cartaOrigem, pilhaFinal) {
+      let ultimaCarta = pilhaFinal[pilhaFinal.length - 1]
 
+      if (cartaOrigem.valor = 'A' && pilhaFinal.length == 0) {
+        return true
+      } else if (cartaOrigem.valor = '2' && ultimaCarta.valor == 'A') {
+        if (cartaOrigem.cor == ultimaCarta.cor) {
+          return true
+        }
+        return false
+      } else if (cartaOrigem.valor = '3' && ultimaCarta.valor == '2') {
+        if (cartaOrigem.cor == ultimaCarta.cor) {
+          return true
+        }
+        return false
+      } else if (cartaOrigem.valor = '4' && ultimaCarta.valor == '3') {
+        if (cartaOrigem.cor == ultimaCarta.cor) {
+          return true
+        }
+        return false
+      } else if (cartaOrigem.valor = '5' && ultimaCarta.valor == '4') {
+        if (cartaOrigem.cor == ultimaCarta.cor) {
+          return true
+        }
+        return false
+      } else if (cartaOrigem.valor = '6' && ultimaCarta.valor == '5') {
+        if (cartaOrigem.cor == ultimaCarta.cor) {
+          return true
+        }
+        return false
+      } else if (cartaOrigem.valor = '7' && ultimaCarta.valor == '6') {
+        if (cartaOrigem.cor == ultimaCarta.cor) {
+          return true
+        }
+        return false
+      } else if (cartaOrigem.valor = '8' && ultimaCarta.valor == '7') {
+        if (cartaOrigem.cor == ultimaCarta.cor) {
+          return true
+        }
+        return false
+      } else if (cartaOrigem.valor = '9' && ultimaCarta.valor == '8') {
+        if (cartaOrigem.cor == ultimaCarta.cor) {
+          return true
+        }
+        return false
+      } else if (cartaOrigem.valor = '10' && ultimaCarta.valor == '9') {
+        if (cartaOrigem.cor == ultimaCarta.cor) {
+          return true
+        }
+        return false
+      } else if (cartaOrigem.valor = 'J' && ultimaCarta.valor == '10') {
+        if (cartaOrigem.cor == ultimaCarta.cor) {
+          return true
+        }
+        return false
+      } else if (cartaOrigem.valor = 'Q' && ultimaCarta.valor == 'J') {
+        if (cartaOrigem.cor == ultimaCarta.cor) {
+          return true
+        }
+        return false
+      } else if (cartaOrigem.valor = 'K' && ultimaCarta.valor == 'Q') {
+        if (cartaOrigem.cor == ultimaCarta.cor) {
+          return true
+        }
+        return false
+      }
     }
 
     // =====================================================
@@ -478,7 +542,11 @@
     // - auxiliares
     // =====================================================
     function validarMovimentoAuxiliar(indiceDestino) {
-
+      if (auxiliares[indiceDestino].length == 0) {
+        return true
+      } else {
+        return false
+      }
     }
 
     // =====================================================
@@ -517,7 +585,24 @@
     // - moverDestino()
     // =====================================================
     function movimentarViaInput() {
+      console.log('movimentar')
+      let campoI = Number(origem.value)
+      let campoF = Number(destino.value)
+      if (campoI == '' || campoF == '') {
+        alert('Preencha os dois campos para mover')
+        return
+      }
 
+      
+
+      cartaSelecionada = selecionarOrigem(campoI)
+
+      if (cartaSelecionada == null) {
+        alert('A carta selecionada está vazia')
+        return
+      }
+
+      moverDestino(campoF)
     }
 
     // =====================================================
@@ -557,7 +642,24 @@
     // - cartaSelecionada
     // =====================================================
     function selecionarOrigem(numero) {
+      console.log('selecOrigem')
+      cartaSelecionada = null
+      numero -= 1
+      if (numero < 8) {
+        cartaSelecionada = {
+          tipo: 'coluna',
+          indice: numero,
+          carta: colunas[numero][colunas[numero].length - 1]
+        }
+      } else if (numero == 8 || numero == 9) {
+        cartaSelecionada = {
+          tipo: 'auxiliar',
+          indice: numero - 8,
+          carta: auxiliares[numero - 8][coluna[numero - 8].length - 1]
+        }
+      }
 
+      return cartaSelecionada
     }
 
     // =====================================================
@@ -587,7 +689,18 @@
     // - moverParaFinal()
     // =====================================================
     function moverDestino(numero) {
+      console.log('moverDestino')
 
+      numero -= 1
+      if(numero < 8) {
+        moverParaColuna(numero)
+      } else if(numero == 8 && numero == 9){
+        moverParaAuxiliar(numero-8)
+      } else if(numero == 10 && numero == 11){
+        moverParaFinal(numero-10)
+      } else {
+        alert("Numero inválido, tente novamente")
+      }
     }
 
     // =====================================================
@@ -614,6 +727,12 @@
     // - auxiliares
     // =====================================================
     function removerCartaSelecionada() {
+
+      if(cartaSelecionada.tipo == 'coluna'){
+        return colunas[cartaSelecionada.indice].pop()
+      } else if (cartaSelecionada.tipo == 'auxiliar'){
+        return auxiliares[cartaSelecionada.indice].pop()
+      }
 
     }
 
@@ -655,7 +774,23 @@
     // - cartaSelecionada
     // =====================================================
     function moverParaColuna(indiceDestino) {
+      console.log('moverColuna')
+      let colunaI = Number(origem.value)
+      let colunaF = Number(destino.value)
 
+      if (colunaI == '' || colunaF == '') {
+        alert('Preencha os dois campos para mover')
+        return
+      }
+      console.log('moverColuna2')
+      let cartaM = colunas[colunaI][colunas[colunaI].length-1]
+      let cartaT = colunas[colunaF][colunas[colunaF].length-1]
+
+      if(validarMovimentoColuna(cartaM, indiceDestino) == true){
+        colunas[colunaF].push(colunas[colunaI].pop)
+        removerCartaSelecionada()
+      }
+      finalizarMovimento()
     }
 
     // =====================================================
